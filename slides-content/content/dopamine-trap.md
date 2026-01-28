@@ -1,21 +1,16 @@
 # DOPAMINFÄLLAN
+
 ## Är det du som styr tekniken, eller tekniken som styr dig?
 
-<div style="margin-top: 40px; margin-bottom: 40px;">
-  <p style="font-size: 1.2em;"><strong>Anton Sätterkvist</strong></p>
-  <p style="opacity: 0.8;">DevOps-student & Tekniknörd</p>
-</div>
+<!-- IMAGE: Background with brain circuits or neural networks -->
 
-<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-  <a href="https://www.linkedin.com/in/anton-satterkvist/" target="_blank" style="background-color: #0077b5; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
-    LinkedIn
-  </a>
-  <a href="https://github.com/AntonSatt" target="_blank" style="background-color: #333; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
-    GitHub
-  </a>
-  <a href="https://antonsatt.com/" target="_blank" style="background-color: #10b981; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
-    Hemsida
-  </a>
+**Anton Sätterkvist**  
+*DevOps-student & Tekniknörd*
+
+<div style="font-size: 0.6em; margin-top: 20px;">
+  <a href="https://www.linkedin.com/in/anton-satterkvist/" style="margin: 0 10px; text-decoration: none; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 20px;">LinkedIn</a>
+  <a href="https://github.com/AntonSatt" style="margin: 0 10px; text-decoration: none; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 20px;">GitHub</a>
+  <a href="https://antonsatt.com/" style="margin: 0 10px; text-decoration: none; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 20px;">Hemsida</a>
 </div>
 
 Note: Hej alla! Jag heter Anton. Idag ska vi prata om något som påverkar oss alla, speciellt oss som gillar teknik.
@@ -132,18 +127,24 @@ Tre enkla regler:
 
 # Tack! 🙏
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 50px; margin-top: 50px;">
-  <div style="text-align: left;">
-    <h3>Anton Sätterkvist</h3>
-    <p><em>DevOps & Security</em></p>
-    <p>🌐 antonsatt.com</p>
+<div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
+  <div style="text-align: left; font-size: 0.8em;">
+    <h3 style="margin: 0; font-size: 1.2em;">Anton Sätterkvist</h3>
+    <p style="margin: 5px 0 20px 0; font-size: 0.8em; opacity: 0.8;">DevOps & Security</p>
+    
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <a href="https://antonsatt.com" style="color: white; text-decoration: none;">� antonsatt.com</a>
+      <a href="https://github.com/AntonSatt" style="color: white; text-decoration: none;">🐙 github.com/AntonSatt</a>
+      <a href="https://www.linkedin.com/in/anton-satterkvist/" style="color: white; text-decoration: none;">💼 LinkedIn</a>
+    </div>
   </div>
+  
   <div>
-    <img src="content/qrcode_www.linkedin.com.png" width="300" style="background: white; padding: 10px; border-radius: 10px;">
+    <img src="content/qrcode_www.linkedin.com.png" width="200" style="background: white; padding: 10px; border-radius: 10px;">
   </div>
 </div>
 
-### Frågor? 🤔
+<p style="margin-top: 50px; font-size: 0.8em;"><em>Frågor?</em> 🤔</p>
 
 Note: Tack för mig! Kom ihåg: Teknik är fantastiskt, men låt inte dopaminet styra er.
 
