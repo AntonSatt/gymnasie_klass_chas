@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Dopamine Trap - Presentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        
+      </div>
+    </div>
+    <template id="slidesTemplate">
+      <section
+        data-separator="^---$"
+        data-separator-vertical="^--$"
+      ></section>
+    </template>
+    <script type="text/javascript">
+      const params = new URLSearchParams(location.search);
+      const targetMarkdown = decodeURIComponent(params.get('md'));
+      const targetTitle = decodeURIComponent(params.get('title'));
+      const template = document.querySelector('#slidesTemplate');
+      const templateClone = template.cloneNode(true);
+      const content = templateClone.content;
+      const section = content.firstElementChild;
+      section.setAttribute('data-markdown', `content/${targetMarkdown}`);
+      const slidesContainer = document.querySelector('.slides');
+      slidesContainer.appendChild(section);
+      document.title = targetTitle;
+    </script>
+  </body>
+</html>
