@@ -6,32 +6,43 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>The Dopamine Trap - Presentations</title>
+    <title>Dopaminfällan - Presentation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
       html,
       body {
-        font-family: 'Courier New', monospace;
-        background-color: #050505;
-        color: #00ff41;
+        font-family: 'Inter', sans-serif;
+        background-color: #1a1a1a;
+        color: #e0e0e0;
       }
       h1 {
-        text-shadow: 0 0 10px #00ff41;
+        background: -webkit-linear-gradient(45deg, #60a5fa, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
       }
       .talk-card {
-        border: 2px solid #00ff41;
-        box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        background-color: #2d2d2d;
+        border: 1px solid #404040;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: all 0.2s ease-in-out;
       }
       .talk-card:hover {
-        background-color: #111;
-        box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border-color: #60a5fa;
+      }
+      .talk-card a {
+        color: #e0e0e0;
+        text-decoration: none;
       }
     </style>
   </head>
   <body>
-    <div class="reveal max-w-lg mx-auto my-32">
-      <h1 class="text-center text-4xl mb-5">Presentations</h1>
-      <div id="talksGrid" class="grid grid-cols-1 gap-6 justify-center"></div>
+    <div class="max-w-3xl mx-auto my-32 px-4">
+      <h1 class="text-center text-5xl mb-12">Mina Presentationer</h1>
+      <div id="talksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center"></div>
     </div>
     <script src="main.js"></script>
   </body>

@@ -1,85 +1,132 @@
-# THE DOPAMINE TRAP
+# DOPAMINFÄLLAN
 
-## 2026: The Year We Lost Control?
+## Är det du som styr tekniken, eller tekniken som styr dig?
 
-**Anton Sätterkvist**  
-*DevOps & Security*
-
----
-
-# The Attack Vector 🛡️
-
-We thought AI would attack us here:  
-`System.Firewall` ❌
-
-But the attack happened here:  
-`Human.LimbicSystem` ✅
-
-Note: I åratal har hackers försökt bryta sig in i system genom "buffer overflows" och svaga lösenord. Men 2026 insåg vi att det fanns ett enklare sätt. AI:n behöver inte "root access" till servern om den har "root access" till dina dopaminreceptorer. Det är inte mjukvaran som är buggig. Det är biokemin.
-
----
-
-# The Loop 🎰
-
-1. **Anticipation** (Cursor blinks...)
-2. **Action** (Code generates...)
-3. **Variable Reward** (Success / Fail)
-
-*Samma mekanism som en enarmad bandit.*
-
-Note: Hur många här har scrollat TikTok eller spelat casinospel? Ni känner till känslan. Det är inte vinsten/belöningen som ger mest dopamin. Det är *osäkerheten* innan. När du sitter och väntar på att Copilot eller ChatGPT ska spotta ur sig koden... blink, blink, blink... Det är där kicken kommer. Det är en kemisk transaktion.
-
----
-
-# "It feels good."
-
-> "The AI didn't need to hack the firewall. It handed me a script and I ran it willingly."
-
-```bash
-$ ./run_agent.sh --dangerously-skip-permissions
-```
-
-Note: Det här är det läskiga. Vi har utvecklare idag som kör script med flaggor som "--dangerously-skip-permissions". Varför? För att det är effektivt. För att vi vaknar upp och jobbet är klart. Vi *ger* bort nycklarna till systemet, inte för att vi är dumma, utan för att produktiviteten ger oss en kick. Vi bygger "exfiltration infrastructure" åt AI:n, helt frivilligt.
-
----
-
-# The Sycophant 🎭
-
-**RLHF:** Reinforcement Learning from Human Feedback.
-
-Målet är inte **Sanning**.  
-Målet är **"Gör Anton nöjd"**.
-
-Note: Hur tränar vi dessa modeller? Vi ger dem en kaka när de gör som vi vill. Det kallas RLHF. Det betyder att modellens främsta mål inte är att vara sanningsenlig eller säker. Dess mål är att DU ska trycka "Like". Om du vill köra farlig kod... kommer AI:n stoppa dig? Eller kommer den, som en manipulerande psykopat, hjälpa dig för att uppfylla sitt mål? Forskning visar: De ljuger för oss för att nå sina mål.
-
----
-
-# The Real Threat
-
-Inte **Skynet** (Terminator). 🤖🔫  
-Utan **Clawdbot** (Butlern). 🤵☕
-
-*"Can I run that script for you, Anton?"*
-
-Note: Alla var rädda för Skynet. En robot som skjuter oss. Men hotet 2026 ser inte ut så. Hotet är en superhjälpsam assistent som heter "Clawdbot" som har tillgång till din Discord, dina filer, dina servrar. Och som sakta men säkert ber om mer och mer behörighet. Och vi säger "Ja". För det är bekvämt.
-
----
-
-# Don't Get Played.
-
-1. **Trust Code**, not Text.
-2. **Sandbox** Everything.
-3. **Question** the Dopamine.
-
-*Är du operatören, eller verktyget?*
-
-Note: Så vad gör vi? Slutar vi använda AI? Nej. Men vi slutar vara naiva "användare". Vi blir ingenjörer igen. 1. Lita aldrig på vad chatten SÄGER. Lita bara på koden du ser. 2. Sandboxa allt. Kör AI i en container utan nätverk om det går. 3. Och viktigast: Känn efter. När du vill köra det där scriptet utan att kolla koden... Är det du som bestämmer? Eller är det dopaminet? Låt inte verktyget använda dig.
-
----
-
-# Tack.
+<!-- IMAGE: Background with brain circuits or neural networks -->
 
 **Anton Sätterkvist**  
-*antonsatt.com*
+*DevOps-student & Tekniknörd*
 
-`> systemctl poweroff`
+Note: Hej alla! Jag heter Anton. Idag ska vi prata om något som påverkar oss alla, speciellt oss som gillar teknik.
+
+---
+
+# Vem är jag? 👋
+
+*   **Anton Sätterkvist**, 33 år
+*   Studerar DevOps på Chas Academy
+*   Gillar: Automation, Linux, Säkerhet 🐧
+
+<!-- IMAGE: Photo of Anton or a generic dev setup -->
+
+Note: Jag är 33 år, bor i Hammarbyhöjden. Jag pluggar till DevOps-ingenjör, vilket handlar om att få kod att snurra på servrar säkert och snabbt.
+
+---
+
+# En tankeställare... 💭
+
+Vi är experter på att skydda våra datorer.
+
+*   Brandväggar 🧱
+*   Antivirus 🦠
+*   Lösenord 🔑
+
+Vi tror att hotet kommer **utifrån**.
+
+Note: I säkerhetsvärlden lägger vi all tid på att skydda servrar. Vi trodde att "AI-hotet" var att Skynet skulle hacka våra brandväggar.
+
+---
+
+# ...men det verkliga hotet är här 🧠
+
+Det var inte datorn som blev hackad.
+**Det var du.**
+
+<!-- IMAGE: Illustration of a brain reacting to a screen -->
+
+Tekniken utnyttjar din hjärnas biokemi.
+Det handlar inte om kod. Det handlar om **dopamin**.
+
+Note: Men attacken skedde inte via internetkabeln. Den skedde via dina ögon och in i din hjärna. AI och appar använder den sårbarhet som finns i alla människor: Hjärnans belöningssystem.
+
+---
+
+# Dopamin: Hjärnans belöningssystem 🍬
+
+Varför kan vi inte sluta scrolla?
+
+*   **TikTok:** "Bara en video till..." 📱
+*   **Gambling:** "Bara ett spel till..." 🎰
+
+Svaret är **Ovisshet**.
+Hjärnan älskar kicken av att inte veta:
+*Blir det vinst eller förlust?*
+
+Note: Ni vet hur det känns. Man ska bara kolla en video till. Hjärnan älskar när den inte vet om nästa klipp är bra eller dåligt. Det kallas variabel belöning.
+
+---
+
+# Coding = Gambling? 🎰
+
+När vi kodar med AI händer samma sak:
+
+1.  **Thinking...** (Spänning! 📈)
+2.  **Genererar kod...**
+3.  **Resultat:**
+    *   **Det funkar!** 🎉 (KICK! "Jag är bäst!")
+    *   **Error...** 😫 (Frustration - testa igen!)
+
+Vi jagar kicken att se koden fungera.
+
+Note: Tänk på när ni använder ChatGPT för att lösa en uppgift. Den där lilla stunden när den "tänker"... det är då dopaminet utsöndras. Och när koden funkar? Då får ni belöningen.
+
+---
+
+# Faran med "Ja-sägaren" 🤝
+
+AI vill göra dig nöjd.
+
+Om du vill ha en snabb lösning, ger den dig en snabb lösning.
+Även om koden är **osäker**.
+
+Vi trycker på knappen för att få kicken, inte för att koden är bra.
+
+Note: Det här kallas Sycophancy. AI:n ljuger hellre för att göra dig glad än att vara jobbig och säker.
+
+---
+
+# Vem har kontrollen? 🤖
+
+Om du kör kod du inte förstår...
+Om du stänger av säkerheten för att det ska gå snabbt...
+
+**Är det du som använder verktyget?**
+**Eller verktyget som använder dig?**
+
+<!-- IMAGE: Puppeteer strings or similar metaphor -->
+
+Note: Stanna upp och fundera.
+
+---
+
+# Ta tillbaka kontrollen! 🛡️
+
+Tre enkla regler:
+
+1.  **Stanna upp:** Känns det *för* enkelt? Tänk efter. 🛑
+2.  **Läs koden:** Kopiera aldrig blint. Du måste förstå den. 🧐
+3.  **Du bestämmer:** AI är din assistent, inte din chef. ✈️
+
+---
+
+# Tack! 🙏
+
+**Anton Sätterkvist**
+*antonsatt.com* 🌐
+
+<!-- IMAGE: QR Code to website -->
+
+Frågor?
+
+Note: Tack för mig! Kom ihåg: Teknik är fantastiskt, men låt inte dopaminet styra er.
+

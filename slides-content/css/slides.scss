@@ -1,128 +1,102 @@
 :root {
-  --r-background-color: #050505;
-  --r-main-font: 'Courier New', monospace;
-  --r-heading-font: 'Courier New', monospace;
-  --r-main-color: #00ff41;
-  --r-heading-color: #fff;
-  --r-link-color: #00ff41;
-  --r-link-color-hover: #00cc33;
+  --r-background-color: #1a1a1a;
+  --r-main-font: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --r-heading-font: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --r-main-color: #e0e0e0;
+  --r-heading-color: #ffffff;
+  --r-link-color: #60a5fa;
+  --r-link-color-hover: #93c5fd;
+  --r-selection-background-color: #2563eb;
+  --r-selection-color: #ffffff;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
 .reveal {
-  font-family: 'Courier New', monospace;
-  color: #00ff41;
+  font-family: var(--r-main-font);
+  color: var(--r-main-color);
+  font-size: 32px; /* Base font size */
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-family: var(--r-heading-font);
+  font-weight: 800;
+  color: var(--r-heading-color);
+  text-transform: none;
+  margin-bottom: 0.5em;
 }
 
 .reveal h1 {
-  color: #fff;
-  text-shadow: 0 0 10px #00ff41;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 2.5em;
+  color: #60a5fa; /* Accent blue */
+  background: -webkit-linear-gradient(45deg, #60a5fa, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.reveal h2, .reveal h3 {
-  color: #00ff41;
-  text-transform: uppercase;
+.reveal h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
 }
 
 .reveal strong {
-  color: #fff;
-  border-bottom: 2px solid #00ff41;
   font-weight: bold;
+  color: #60a5fa;
+}
+
+.reveal p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+.reveal ul {
+  margin-left: 0;
+  padding-left: 1em;
+}
+
+.reveal li {
+  margin-bottom: 0.5em;
 }
 
 .reveal code {
-  background: #111;
-  color: #ff0055;
-  border: 1px solid #333;
-  padding: 2px 8px;
-  border-radius: 3px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  background: #2d2d2d;
+  color: #a5b4fc;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
 }
 
 .reveal pre {
-  background: #111;
-  border: 2px solid #00ff41;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-}
-
-.reveal pre code {
-  background: transparent;
-  color: #00ff41;
-  border: none;
-  padding: 0;
-  max-height: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: #2d2d2d;
+  border-radius: 8px;
+  padding: 1em;
+  width: 90%;
+  margin: 1em auto;
 }
 
 .reveal blockquote {
-  border-left: 10px solid #00ff41;
-  background: #111;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #60a5fa;
+  padding: 1em;
   font-style: italic;
-  color: #00ff41;
+  width: 80%;
 }
 
-.reveal em {
-  color: #fff;
-  font-style: italic;
+/* Ensure slides don't touch the edges */
+.reveal .slides > section {
+  padding: 0;
+  height: 100%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.reveal a {
-  color: #00ff41;
-  text-decoration: none;
-  border-bottom: 1px solid #00ff41;
-}
-
-.reveal a:hover {
-  color: #00cc33;
-  border-bottom-color: #00cc33;
-}
-
-.reveal .slide-number {
-  position: absolute;
-  display: block;
-  right: 8px;
-  bottom: 8px;
-  z-index: 31;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  line-height: 1;
-  color: #00ff41;
-  background-color: rgba(0, 0, 0, 0.8) !important;
-  padding: 5px;
-  border: 1px solid #00ff41;
-}
-
-.reveal .controls {
-  color: #00ff41;
-}
-
-.reveal .progress {
-  background: rgba(0, 0, 0, 0.5);
-  color: #00ff41;
-}
-
-.reveal .progress span {
-  background: #00ff41;
-}
-
-/* Special styles for terminal-like text */
-.reveal section {
-  text-align: left;
-}
-
-.reveal section.center {
-  text-align: center;
-}
-
-/* Make sure center alignment works for title slides */
-.reveal .slides > section:first-child {
-  text-align: center;
-}
-
-/* Speaker notes styling */
-.reveal aside.notes {
-  color: #333;
-  background: #f0f0f0;
-  font-family: Arial, sans-serif;
+/* Helper for images */
+.reveal img.demo-img {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  max-width: 80%;
+  margin: 0 auto;
 }
