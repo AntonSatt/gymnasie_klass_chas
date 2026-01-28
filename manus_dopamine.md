@@ -1,3 +1,7 @@
+---
+marp: true
+---
+
 # Manus för "The Dopamine Trap"
 
 Ha detta tillgängligt vid sidan av (t.ex. i mobilen eller utskrivet) medan du kör presentationen. Du behöver inte läsa det rakt av – använd det som stödord.

@@ -3,6 +3,7 @@ marp: true
 theme: uncover
 class: invert
 paginate: true
+backgroundColor: #050505
 style: |
   section { background-color: #050505; color: #00ff41; font-family: 'Courier New', monospace; }
   h1 { color: #fff; text-shadow: 0 0 10px #00ff41; }
