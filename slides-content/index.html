@@ -41,9 +41,43 @@
     </style>
   </head>
   <body>
-    <div class="max-w-3xl mx-auto my-32 px-4">
-      <h1 class="text-center text-5xl mb-12">Mina Presentationer</h1>
-      <div id="talksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center"></div>
+    <div class="max-w-2xl mx-auto my-16 px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-5xl mb-4">Anton Sätterkvist</h1>
+        <p class="text-xl text-gray-400 font-light">DevOps-student & Tekniknörd</p>
+      </div>
+
+      <h2 class="text-2xl font-bold text-center text-gray-300 mb-8 uppercase tracking-wider">Presentationer & Länkar</h2>
+      
+      <div id="talksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20 max-w-4xl mx-auto">
+        <!-- Presentations will be injected here -->
+        
+        <!-- Social Links matching the presentation card style -->
+        <section class="talk-card rounded-xl min-h-[5rem] cursor-pointer transition-all duration-300 hover:scale-[1.02] group">
+          <a href="https://antonsatt.com/" target="_blank" class="w-full h-full flex items-center justify-center px-6 py-4">
+            <span class="font-bold text-lg text-gray-200 group-hover:text-blue-400 transition-colors text-center tracking-wide uppercase">Hemsida</span>
+          </a>
+        </section>
+
+        <section class="talk-card rounded-xl min-h-[5rem] cursor-pointer transition-all duration-300 hover:scale-[1.02] group">
+          <a href="https://github.com/AntonSatt" target="_blank" class="w-full h-full flex items-center justify-center px-6 py-4">
+            <span class="font-bold text-lg text-gray-200 group-hover:text-blue-400 transition-colors text-center tracking-wide uppercase">GitHub</span>
+          </a>
+        </section>
+
+        <section class="talk-card rounded-xl min-h-[5rem] cursor-pointer transition-all duration-300 hover:scale-[1.02] group">
+          <a href="https://www.linkedin.com/in/anton-satterkvist/" target="_blank" class="w-full h-full flex items-center justify-center px-6 py-4">
+            <span class="font-bold text-lg text-gray-200 group-hover:text-blue-400 transition-colors text-center tracking-wide uppercase">LinkedIn</span>
+          </a>
+        </section>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <div class="p-3 bg-white rounded-xl shadow-2xl">
+          <img src="content/qrcode_antonsatt.github.io.png" alt="QR Code" class="w-48 h-48">
+        </div>
+        <p class="mt-4 text-gray-500 text-sm">Scan to visit on mobile</p>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>

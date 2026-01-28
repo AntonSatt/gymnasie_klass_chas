@@ -7,12 +7,6 @@
 **Anton Sätterkvist**  
 *DevOps-student & Tekniknörd*
 
-<div style="font-size: 0.6em; margin-top: 20px;">
-  <a href="https://www.linkedin.com/in/anton-satterkvist/" style="margin: 0 10px; text-decoration: none; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 20px;">LinkedIn</a>
-  <a href="https://github.com/AntonSatt" style="margin: 0 10px; text-decoration: none; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 20px;">GitHub</a>
-  <a href="https://antonsatt.com/" style="margin: 0 10px; text-decoration: none; color: white; border: 1px solid white; padding: 5px 15px; border-radius: 20px;">Hemsida</a>
-</div>
-
 Note: Hej alla! Jag heter Anton. Idag ska vi prata om något som påverkar oss alla, speciellt oss som gillar teknik.
 
 ---
@@ -131,14 +125,12 @@ Tre enkla regler:
   <div style="text-align: left; font-size: 0.8em;">
     <h3 style="margin: 0; font-size: 1.2em;">Anton Sätterkvist</h3>
     <p style="margin: 5px 0 20px 0; font-size: 0.8em; opacity: 0.8;">DevOps & Security</p>
-    
     <div style="display: flex; flex-direction: column; gap: 10px;">
-      <a href="https://antonsatt.com" style="color: white; text-decoration: none;">� antonsatt.com</a>
+      <a href="https://antonsatt.com" style="color: white; text-decoration: none;">🌐 antonsatt.com</a>
       <a href="https://github.com/AntonSatt" style="color: white; text-decoration: none;">🐙 github.com/AntonSatt</a>
       <a href="https://www.linkedin.com/in/anton-satterkvist/" style="color: white; text-decoration: none;">💼 LinkedIn</a>
     </div>
   </div>
-  
   <div>
     <img src="content/qrcode_www.linkedin.com.png" width="200" style="background: white; padding: 10px; border-radius: 10px;">
   </div>
