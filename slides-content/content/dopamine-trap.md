@@ -1,11 +1,22 @@
 # DOPAMINFÄLLAN
-
 ## Är det du som styr tekniken, eller tekniken som styr dig?
 
-<!-- IMAGE: Background with brain circuits or neural networks -->
+<div style="margin-top: 40px; margin-bottom: 40px;">
+  <p style="font-size: 1.2em;"><strong>Anton Sätterkvist</strong></p>
+  <p style="opacity: 0.8;">DevOps-student & Tekniknörd</p>
+</div>
 
-**Anton Sätterkvist**  
-*DevOps-student & Tekniknörd*
+<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+  <a href="https://www.linkedin.com/in/anton-satterkvist/" target="_blank" style="background-color: #0077b5; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
+    LinkedIn
+  </a>
+  <a href="https://github.com/AntonSatt" target="_blank" style="background-color: #333; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
+    GitHub
+  </a>
+  <a href="https://antonsatt.com/" target="_blank" style="background-color: #10b981; color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); transition: transform 0.2s;">
+    Hemsida
+  </a>
+</div>
 
 Note: Hej alla! Jag heter Anton. Idag ska vi prata om något som påverkar oss alla, speciellt oss som gillar teknik.
 
@@ -121,12 +132,18 @@ Tre enkla regler:
 
 # Tack! 🙏
 
-**Anton Sätterkvist**
-*antonsatt.com* 🌐
+<div style="display: flex; justify-content: center; align-items: center; gap: 50px; margin-top: 50px;">
+  <div style="text-align: left;">
+    <h3>Anton Sätterkvist</h3>
+    <p><em>DevOps & Security</em></p>
+    <p>🌐 antonsatt.com</p>
+  </div>
+  <div>
+    <img src="content/qrcode_www.linkedin.com.png" width="300" style="background: white; padding: 10px; border-radius: 10px;">
+  </div>
+</div>
 
-![QR Code](content/qrcode_www.linkedin.com.png)
-
-Frågor?
+### Frågor? 🤔
 
 Note: Tack för mig! Kom ihåg: Teknik är fantastiskt, men låt inte dopaminet styra er.
 
