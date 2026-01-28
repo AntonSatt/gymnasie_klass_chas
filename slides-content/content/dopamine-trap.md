@@ -124,7 +124,7 @@ Tre enkla regler:
 **Anton Sätterkvist**
 *antonsatt.com* 🌐
 
-<!-- IMAGE: QR Code to website -->
+![QR Code](qrcode_www.linkedin.com.png)
 
 Frågor?
 
