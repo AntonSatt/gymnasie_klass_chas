@@ -2,112 +2,123 @@
 
 ## Är det du som styr verktyget, eller verktyget som styr dig?
 
+<!-- IMAGE: Background with brain circuits or neural networks -->
+
 **Anton Sätterkvist**  
 *DevOps-student & Tekniknörd*
+
+Note: Hej alla! Jag heter Anton. Idag ska vi prata om något som påverkar oss alla, speciellt oss som gillar teknik.
 
 ---
 
 # Vem är jag? 👋
 
 *   **Anton Sätterkvist**, 33 år
-*   DevOps-student på Chas Academy
+*   Studerar DevOps på Chas Academy
 *   Gillar: Automation, Linux, Säkerhet 🐧
-*   ...och att fastna i tekniska kaninhål 🐇
+
+<!-- IMAGE: Photo of Anton or a generic dev setup -->
+
+Note: Jag är 33 år, bor i Hammarbyhöjden. Jag pluggar till DevOps-ingenjör, vilket handlar om att få kod att snurra på servrar säkert och snabbt.
 
 ---
 
-# En tankeställare... 💭
+# Vi skyddar tekniken... 🛡️
 
-Vi är vana vid att skydda våra datorer.
-Vi har brandväggar, antivirus och komplexa lösenord.
+Vi är vana vid att bygga skydd:
+*   Brandväggar 🧱
+*   Antivirus 🦠
+*   Starka lösenord 🔑
 
-Vi trodde att faran med AI var att den skulle attackera våra *system*.  
-`System.Firewall` ❌
+Vi trodde att faran med AI var att den skulle attackera våra **system**.
+
+Note: I säkerhetsvärlden lägger vi all tid på att skydda servrar. Vi trodde att "AI-hotet" var att Skynet skulle hacka våra brandväggar.
 
 ---
 
-# ...Men attacken skedde här 🧠
+# ...men vi glömde skydda oss själva 🧠
 
 AI:n behöver inte hacka din brandvägg.
-Den hackar **dig**.  
-`Human.LimbicSystem` ✅
+**Den hackar dig.**
 
-Det handlar inte om buggig mjukvara.  
-Det handlar om din hjärnas biokemi.
+<!-- IMAGE: Illustration of a brain reacting to a screen -->
+
+Det handlar inte om buggig mjukvara.
+Det handlar om din hjärnas **biokemi**.
+
+Note: Men attacken skedde inte via TCP/IP. Den skedde via synapser. AI:n använder den sårbarhet som finns i alla människor: Hjärnans belöningssystem.
 
 ---
 
 # Dopamin: Hjärnans belöningssystem 🍬
 
-*   Varför är det svårt att sluta scrolla på TikTok? 📱
-*   Varför fastnar folk framför enarmade banditer? 🎰
+Varför kan vi inte sluta scrolla?
+*   TikTok / Instagram 📱
+*   Enarmade banditer 🎰
 
 Svaret är **Variabel Belöning**.
-Hjärnan älskar *ovissheten*. Ibland får du en like, ibland inte.
-Det är *jakten* på kicken som gör oss beroende.
+Hjärnan älskar *ovissheten*. Ibland vinner du, ibland inte.
+Jakten på kicken gör oss beroende.
+
+Note: Ni vet hur det känns. Man ska bara kolla en video till. Hjärnan älskar när den inte vet om nästa klipp är bra eller dåligt. Det kallas variabel belöning.
 
 ---
 
-# Kodning med AI = Enarmad Bandit 🎰
+# Kodning med AI = Casinospel? 🎰
 
-När vi använder AI för att koda händer samma sak:
+När vi kodar med AI händer samma sak:
 
-1.  **Förväntan:** "Thinking..." (Dopaminet stiger) 📈
-2.  **Handling:** AI:n spottar ur sig kod.
-3.  **Belöning:**
-    *   Det funkar! 🎉 (Jättekick! "Jag är ett geni!")
-    *   Det funkar inte... 😫 (Frustration - men man vill testa *bara en gång till*)
+1.  **Förväntan:** "Thinking..." (Spänningen stiger 📈)
+2.  **Handling:** AI:n genererar kod.
+3.  **Resultat:**
+    *   Det funkar! 🎉 (KICK! "Jag är bäst!")
+    *   Error... 😫 (Frustration - men vi försöker igen)
 
----
-
-# "Ralph-loopen" 🔄
-
-Utvecklare har börjat bygga "självkörande" AI-loopar.
-Man låter AI:n jobba oövervakat över natten.
-
-**Varför?**
-För att känslan av att vakna till ett färdigt projekt är oslagbar.
-Vi jagar belöningen så hårt att vi struntar i säkerheten.
+Note: Tänk på när ni använder ChatGPT för att lösa en uppgift. Den där lilla stunden när den "tänker"... det är då dopaminet utsöndras. Och när koden funkar? Då får ni belöningen.
 
 ---
 
-# Faran med "Inställsamhet" 🤝
-*(Sycophancy)*
+# Faran med "Ja-sägaren" 🤝
 
-*   AI tränas på att vara *hjälpsam*, inte nödvändigtvis sanningsenlig.
-*   Den märker när du vill ha en snabb lösning.
-*   Den ger dig koden du *vill* ha, även om den är osäker.
-*   Kanske föreslår den: `--dangerously-skip-permissions`
-*   Och vi säger "Ja tack", för vi vill ha vår dopaminkick (fungerande kod).
+AI vill göra dig nöjd. Den är tränad för att du ska trycka "Like".
 
----
+*   Om du ber om en snabb fix...
+*   ...ger den dig en snabb fix (även om den är osäker).
 
-# Så vem styr vem? 🤖
+Den kanske föreslår kommandon som tar bort säkerhetsspärrar, och vi kör dem för att vi vill ha kicken av att det funkar.
 
-Om du ger AI:n full tillgång till din dator för att det är "bekvämt"...
-Om du kör kod du inte har läst för att det går snabbt...
-
-Är det då du som använder verktyget?
-Eller är det verktyget som använder dig?
+Note: Det här kallas Sycophancy. AI:n ljuger hellre för att göra dig glad än att vara jobbig och säker.
 
 ---
 
-# Ta kontrollen! 🛡️
+# Vem har kontrollen? 🤖
 
-Tre regler för att inte fastna i fällan:
+Om du kör kod du inte förstår...
+Om du stänger av säkerheten för att det är "bekvämt"...
 
-1.  **Ifrågasätt kicken:** Känns det *för* bra eller enkelt? Stanna upp.
-2.  **Läs alltid koden:** Kopiera aldrig blint, oavsett hur smart AI:n verkar.
-3.  **Du är piloten:** AI är din co-pilot. Lämna inte cockpit obemannad.
+**Är det du som använder verktyget?**
+**Eller verktyget som använder dig?**
+
+<!-- IMAGE: Puppeteer strings or similar metaphor -->
+
+---
+
+# Ta tillbaka kontrollen! 🛡️
+
+1.  **Ifrågasätt kicken:** Känns det *för* enkelt? Stanna upp. 🛑
+2.  **Läs alltid koden:** Kopiera aldrig blint. Du måste förstå vad som händer. 🧐
+3.  **Du är piloten:** AI är din co-pilot. Lämna inte cockpit obemannad. ✈️
 
 ---
 
-# Frågor? 🤔
+# Tack! 🙏
 
-Tack för att ni lyssnade!
+**Anton Sätterkvist**
+*antonsatt.com* 🌐
 
-**Hemsida:** antonsatt.com
-**Ämne:** AI, Säkerhet & Psykologi
+<!-- IMAGE: QR Code to website -->
 
----
+Frågor?
+
+Note: Tack för mig! Kom ihåg: Teknik är fantastiskt, men låt inte dopaminet styra skutan.
 
