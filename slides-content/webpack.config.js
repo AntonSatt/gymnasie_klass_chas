@@ -38,10 +38,8 @@ module.exports = {
   entry: './js/slides.js',
   output: {
     filename: 'bundle.[contenthash].js',
-    path: path.resolve(
-      __dirname,
-      process.env.NODE_ENV === 'production' ? `dist/${BASE_HREF}` : 'dist'
-    ),
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: process.env.NODE_ENV === 'production' ? `/${BASE_HREF}/` : '/',
   },
   mode: 'development',
   devtool: 'source-map',
