@@ -151,4 +151,6 @@ Låt inte verktyget använda dig.
 **Anton Sätterkvist**
 *antonsatt.com*
 
+![w:300](qrcode_www.linkedin.com.png)
+
 `> systemctl poweroff`
