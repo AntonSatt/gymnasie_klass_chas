@@ -1,6 +1,6 @@
 # DOPAMINFÄLLAN
 
-## Är det du som styr verktyget, eller verktyget som styr dig?
+## Är det du som styr tekniken, eller tekniken som styr dig?
 
 <!-- IMAGE: Background with brain circuits or neural networks -->
 
@@ -23,56 +23,60 @@ Note: Jag är 33 år, bor i Hammarbyhöjden. Jag pluggar till DevOps-ingenjör, 
 
 ---
 
-# Vi skyddar tekniken... 🛡️
+# En tankeställare... 💭
 
-Vi är vana vid att bygga skydd:
+Vi är experter på att skydda våra datorer.
+
 *   Brandväggar 🧱
 *   Antivirus 🦠
-*   Starka lösenord 🔑
+*   Lösenord 🔑
 
-Vi trodde att faran med AI var att den skulle attackera våra **system**.
+Vi tror att hotet kommer **utifrån**.
 
 Note: I säkerhetsvärlden lägger vi all tid på att skydda servrar. Vi trodde att "AI-hotet" var att Skynet skulle hacka våra brandväggar.
 
 ---
 
-# ...men vi glömde skydda oss själva 🧠
+# ...men det verkliga hotet är här 🧠
 
-AI:n behöver inte hacka din brandvägg.
-**Den hackar dig.**
+Det var inte datorn som blev hackad.
+**Det var du.**
 
 <!-- IMAGE: Illustration of a brain reacting to a screen -->
 
-Det handlar inte om buggig mjukvara.
-Det handlar om din hjärnas **biokemi**.
+Tekniken utnyttjar din hjärnas biokemi.
+Det handlar inte om kod. Det handlar om **dopamin**.
 
-Note: Men attacken skedde inte via TCP/IP. Den skedde via synapser. AI:n använder den sårbarhet som finns i alla människor: Hjärnans belöningssystem.
+Note: Men attacken skedde inte via internetkabeln. Den skedde via dina ögon och in i din hjärna. AI och appar använder den sårbarhet som finns i alla människor: Hjärnans belöningssystem.
 
 ---
 
 # Dopamin: Hjärnans belöningssystem 🍬
 
 Varför kan vi inte sluta scrolla?
-*   TikTok / Instagram 📱
-*   Enarmade banditer 🎰
 
-Svaret är **Variabel Belöning**.
-Hjärnan älskar *ovissheten*. Ibland vinner du, ibland inte.
-Jakten på kicken gör oss beroende.
+*   **TikTok:** "Bara en video till..." 📱
+*   **Gambling:** "Bara ett spel till..." 🎰
+
+Svaret är **Ovisshet**.
+Hjärnan älskar kicken av att inte veta:
+*Blir det vinst eller förlust?*
 
 Note: Ni vet hur det känns. Man ska bara kolla en video till. Hjärnan älskar när den inte vet om nästa klipp är bra eller dåligt. Det kallas variabel belöning.
 
 ---
 
-# Kodning med AI = Casinospel? 🎰
+# Coding = Gambling? 🎰
 
 När vi kodar med AI händer samma sak:
 
-1.  **Förväntan:** "Thinking..." (Spänningen stiger 📈)
-2.  **Handling:** AI:n genererar kod.
+1.  **Thinking...** (Spänning! 📈)
+2.  **Genererar kod...**
 3.  **Resultat:**
-    *   Det funkar! 🎉 (KICK! "Jag är bäst!")
-    *   Error... 😫 (Frustration - men vi försöker igen)
+    *   **Det funkar!** 🎉 (KICK! "Jag är bäst!")
+    *   **Error...** 😫 (Frustration - testa igen!)
+
+Vi jagar kicken att se koden fungera.
 
 Note: Tänk på när ni använder ChatGPT för att lösa en uppgift. Den där lilla stunden när den "tänker"... det är då dopaminet utsöndras. Och när koden funkar? Då får ni belöningen.
 
@@ -80,12 +84,12 @@ Note: Tänk på när ni använder ChatGPT för att lösa en uppgift. Den där li
 
 # Faran med "Ja-sägaren" 🤝
 
-AI vill göra dig nöjd. Den är tränad för att du ska trycka "Like".
+AI vill göra dig nöjd.
 
-*   Om du ber om en snabb fix...
-*   ...ger den dig en snabb fix (även om den är osäker).
+Om du vill ha en snabb lösning, ger den dig en snabb lösning.
+Även om koden är **osäker**.
 
-Den kanske föreslår kommandon som tar bort säkerhetsspärrar, och vi kör dem för att vi vill ha kicken av att det funkar.
+Vi trycker på knappen för att få kicken, inte för att koden är bra.
 
 Note: Det här kallas Sycophancy. AI:n ljuger hellre för att göra dig glad än att vara jobbig och säker.
 
@@ -94,20 +98,24 @@ Note: Det här kallas Sycophancy. AI:n ljuger hellre för att göra dig glad än
 # Vem har kontrollen? 🤖
 
 Om du kör kod du inte förstår...
-Om du stänger av säkerheten för att det är "bekvämt"...
+Om du stänger av säkerheten för att det ska gå snabbt...
 
 **Är det du som använder verktyget?**
 **Eller verktyget som använder dig?**
 
 <!-- IMAGE: Puppeteer strings or similar metaphor -->
 
+Note: Stanna upp och fundera.
+
 ---
 
 # Ta tillbaka kontrollen! 🛡️
 
-1.  **Ifrågasätt kicken:** Känns det *för* enkelt? Stanna upp. 🛑
-2.  **Läs alltid koden:** Kopiera aldrig blint. Du måste förstå vad som händer. 🧐
-3.  **Du är piloten:** AI är din co-pilot. Lämna inte cockpit obemannad. ✈️
+Tre enkla regler:
+
+1.  **Stanna upp:** Känns det *för* enkelt? Tänk efter. 🛑
+2.  **Läs koden:** Kopiera aldrig blint. Du måste förstå den. 🧐
+3.  **Du bestämmer:** AI är din assistent, inte din chef. ✈️
 
 ---
 
@@ -120,5 +128,5 @@ Om du stänger av säkerheten för att det är "bekvämt"...
 
 Frågor?
 
-Note: Tack för mig! Kom ihåg: Teknik är fantastiskt, men låt inte dopaminet styra skutan.
+Note: Tack för mig! Kom ihåg: Teknik är fantastiskt, men låt inte dopaminet styra er.
 
