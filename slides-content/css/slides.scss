@@ -1,0 +1,128 @@
+:root {
+  --r-background-color: #050505;
+  --r-main-font: 'Courier New', monospace;
+  --r-heading-font: 'Courier New', monospace;
+  --r-main-color: #00ff41;
+  --r-heading-color: #fff;
+  --r-link-color: #00ff41;
+  --r-link-color-hover: #00cc33;
+}
+
+.reveal {
+  font-family: 'Courier New', monospace;
+  color: #00ff41;
+}
+
+.reveal h1 {
+  color: #fff;
+  text-shadow: 0 0 10px #00ff41;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.reveal h2, .reveal h3 {
+  color: #00ff41;
+  text-transform: uppercase;
+}
+
+.reveal strong {
+  color: #fff;
+  border-bottom: 2px solid #00ff41;
+  font-weight: bold;
+}
+
+.reveal code {
+  background: #111;
+  color: #ff0055;
+  border: 1px solid #333;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.reveal pre {
+  background: #111;
+  border: 2px solid #00ff41;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.reveal pre code {
+  background: transparent;
+  color: #00ff41;
+  border: none;
+  padding: 0;
+  max-height: 500px;
+}
+
+.reveal blockquote {
+  border-left: 10px solid #00ff41;
+  background: #111;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  font-style: italic;
+  color: #00ff41;
+}
+
+.reveal em {
+  color: #fff;
+  font-style: italic;
+}
+
+.reveal a {
+  color: #00ff41;
+  text-decoration: none;
+  border-bottom: 1px solid #00ff41;
+}
+
+.reveal a:hover {
+  color: #00cc33;
+  border-bottom-color: #00cc33;
+}
+
+.reveal .slide-number {
+  position: absolute;
+  display: block;
+  right: 8px;
+  bottom: 8px;
+  z-index: 31;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1;
+  color: #00ff41;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  padding: 5px;
+  border: 1px solid #00ff41;
+}
+
+.reveal .controls {
+  color: #00ff41;
+}
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.5);
+  color: #00ff41;
+}
+
+.reveal .progress span {
+  background: #00ff41;
+}
+
+/* Special styles for terminal-like text */
+.reveal section {
+  text-align: left;
+}
+
+.reveal section.center {
+  text-align: center;
+}
+
+/* Make sure center alignment works for title slides */
+.reveal .slides > section:first-child {
+  text-align: center;
+}
+
+/* Speaker notes styling */
+.reveal aside.notes {
+  color: #333;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
