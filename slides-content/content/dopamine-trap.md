@@ -82,6 +82,63 @@ Note: Tänk på när ni använder ChatGPT för att lösa en uppgift. Den där li
 
 ---
 
+# Den nya arbetscykeln ⚡
+
+**Förut:**  
+Idé → Arbete (timmar/dagar) → Resultat → Belöning
+
+**Nu med AI:**  
+Idé → Resultat (sekunder) → Belöning 🔄
+
+Samma mekanism som spelautomater...  
+**men med verkliga konsekvenser.**
+
+Note: När avståndet mellan tanke och resultat förkortas så dramatiskt, försvinner alla naturliga stopp. Det är inte längre arbetet som är flaskhalsen, utan din fantasi och fokus.
+
+---
+
+# "Cracked" - Den nya normaliteten 🔥
+
+Många jobbar nu **10-14 timmar per dag** med AI.
+
+*   Längre dagar. Färre pauser. Mer output.
+*   "Det här är det roligaste jag haft på jobbet!"
+
+När loopen blir tillräckligt snabb försvinner känslan av "arbete".  
+Folk känner sig i **konstant flow**.
+
+Note: Folk beskriver det som det roligaste de någonsin haft. Men är det verkligen det? Eller är det dopaminet som talar?
+
+---
+
+# Den stora klyftan 📊
+
+AI påverkar inte alla lika:
+
+**Grupp 1: Exoskelettet** 💪  
+AI förstärker deras driv. Ofta nyfikna, idédrivna, naturligt flitiga.
+
+**Grupp 2: Löpbandet** 🏃  
+Samma verktyg känns som ett löpband som aldrig stannar.  
+Chefen kräver mer. Tempot avtar aldrig.
+
+Note: AI belönar inte de smartaste eller snabbaste. Den belönar de som orkar fortsätta när friktionen är borta och tempot aldrig avtar. Det här kan definiera nästa decennium.
+
+---
+
+# AI för jobb vs AI för slop 🤖
+
+Två vägar framåt:
+
+*   **"AI för jobb":** Agenter och smarta verktyg → Prestationsmänniskor
+*   **"AI för slop":** Feeds och passiv konsumtion → Resten?
+
+Vilken väg väljer du?
+
+Note: Det här är inte bara en teknisk fråga. Det är en fråga om hur vi vill leva våra liv. Vill vi vara aktiva skapare eller passiva konsumenter?
+
+---
+
 # Faran med "Ja-sägaren" 🤝
 
 AI vill göra dig nöjd.
@@ -116,6 +173,11 @@ Tre enkla regler:
 1.  **Stanna upp:** Känns det *för* enkelt? Tänk efter. 🛑
 2.  **Läs koden:** Kopiera aldrig blint. Du måste förstå den. 🧐
 3.  **Du bestämmer:** AI är din assistent, inte din chef. ✈️
+
+**Bonus:** Ta hand om dig! 💚  
+När friktionen försvinner och tempot aldrig avtar - kom ihåg att pausa.
+
+Note: Hela vår relation till arbete håller på att omdefinieras. Det är okej att sätta gränser även när det känns fantastiskt att jobba.
 
 ---
 
