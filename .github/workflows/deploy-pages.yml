@@ -36,6 +36,9 @@ jobs:
         working-directory: ./slides-content
         run: npm run build
 
+      - name: Add .nojekyll
+        run: touch ./slides-content/dist/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
