@@ -72,11 +72,15 @@ async function callOpenRouter(prompt, model) {
       model: model,
       messages: [
         {
+          role: 'system',
+          content: 'Svara kort och koncist. Max 100-150 ord. Inga långa utläggningar. Använd inte markdown-rubriker (##). Skriv på svenska.',
+        },
+        {
           role: 'user',
           content: prompt,
         },
       ],
-      max_tokens: 1024,
+      max_tokens: 400,
       temperature: 0.7,
     }),
   });
@@ -105,42 +109,10 @@ function renderMarkdown(text) {
     .replace(/\n/g, '<br>');
 }
 
-// ---- Demo Slide: Main prompt runner ----
-
-async function runPrompt() {
-  const input = document.getElementById('prompt-input');
-  const responseEl = document.getElementById('ai-response');
-  const button = document.getElementById('run-btn');
-  const modelSelect = document.getElementById('model-select');
-
-  const prompt = input.value.trim();
-  if (!prompt) return;
-
-  button.disabled = true;
-  button.textContent = 'Tänker...';
-  responseEl.className = 'ai-response result-slide loading';
-  responseEl.innerHTML = 'AI tänker...';
-
-  // Advance to the result slide
-  Reveal.next();
-
-  try {
-    const result = await callOpenRouter(prompt, modelSelect.value);
-    responseEl.className = 'ai-response result-slide';
-    responseEl.innerHTML = renderMarkdown(result);
-  } catch (err) {
-    responseEl.className = 'ai-response result-slide error';
-    responseEl.textContent = err.message;
-  } finally {
-    button.disabled = false;
-    button.textContent = 'Kör';
-    Reveal.layout();
-  }
-}
-
 // ---- Battle Rounds ----
 
 const battleResults = {
+  demo: { utan: null, med: null, egen: null },
   battle1: { utan: null, med: null, egen: null },
   battle2: { utan: null, med: null, egen: null },
   battle3: { utan: null, med: null, egen: null },
@@ -148,6 +120,7 @@ const battleResults = {
 
 // Track which tab is currently active per round
 const activeTabs = {
+  demo: 'utan',
   battle1: 'utan',
   battle2: 'utan',
   battle3: 'utan',

@@ -97,24 +97,43 @@
       <!-- ====== SLIDE 6: Interaktiv demo ====== -->
       <section data-state="demo-slide">
         <h2>Live-demo: Testa själv!</h2>
-        <p>Skriv en prompt och se skillnaden.</p>
-        <div class="demo-container">
-          <textarea id="prompt-input" rows="4" placeholder="Skriv din prompt här... T.ex. 'Förklara kvantfysik för en 16-åring på svenska, använd en jämförelse med fotboll.'"></textarea>
-          <div class="demo-controls">
-            <button id="run-btn" onclick="runPrompt()">Kör</button>
+        <p>"Förklara kvantfysik för en gymnasieelev"</p>
+        <div class="demo-container small">
+          <div class="demo-controls" style="margin-bottom: 10px;">
             <select id="model-select">
               <option value="google/gemini-3-flash-preview">Gemini 3 Flash</option>
               <option value="anthropic/claude-sonnet-4">Claude Sonnet 4</option>
               <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
             </select>
           </div>
+          <div class="round-prompts">
+            <div class="round-prompt bad">
+              <h4>Utan kontext:</h4>
+              <p class="prompt-text">"Förklara kvantfysik."</p>
+              <button onclick="runBattlePreset('demo', 'utan', this)">Kör</button>
+            </div>
+            <div class="round-prompt good">
+              <h4>Med kontext:</h4>
+              <p class="prompt-text">"Förklara kvantfysik som om jag är 16 år, på svenska, använd en jämförelse med fotboll. Max 150 ord, fokusera på varför det är coolt och ge ett konkret exempel."</p>
+              <button onclick="runBattlePreset('demo', 'med', this)">Kör</button>
+            </div>
+          </div>
+          <div class="custom-prompt-row">
+            <textarea id="demo-custom" rows="2" placeholder="Skriv en egen prompt..."></textarea>
+            <button onclick="runBattleCustom('demo')">Kör</button>
+          </div>
         </div>
       </section>
 
       <!-- ====== SLIDE 6b: Demo resultat ====== -->
       <section>
-        <h2>AI-svar</h2>
-        <div id="ai-response" class="ai-response result-slide">
+        <h2>Live-demo: AI-svar</h2>
+        <div class="response-tabs">
+          <button id="demo-tab-utan" class="response-tab tab-utan active" onclick="showBattleTab('demo', 'utan')">Utan kontext</button>
+          <button id="demo-tab-med" class="response-tab tab-med" onclick="showBattleTab('demo', 'med')">Med kontext</button>
+          <button id="demo-tab-egen" class="response-tab tab-egen" onclick="showBattleTab('demo', 'egen')">Egen prompt</button>
+        </div>
+        <div id="demo-response" class="ai-response result-slide">
           <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
       </section>
@@ -142,17 +161,17 @@
       <!-- ====== SLIDE 8: Rond 1 ====== -->
       <section data-state="demo-slide">
         <h2>Rond 1: Glömt läxan</h2>
-        <p>"Kom på 5 kreativa ursäkter för att ha glömt läxan"</p>
+        <p>"Kom på kreativa ursäkter för att ha glömt läxan"</p>
         <div class="demo-container small">
           <div class="round-prompts">
             <div class="round-prompt bad">
               <h4>Utan kontext:</h4>
-              <p class="prompt-text">"Ge mig 5 ursäkter för att ha glömt läxan."</p>
+              <p class="prompt-text">"Ge mig ursäkter för att ha glömt läxan."</p>
               <button onclick="runBattlePreset('battle1', 'utan', this)">Kör</button>
             </div>
             <div class="round-prompt good">
               <h4>Med kontext:</h4>
-              <p class="prompt-text">"Du är en tonårig elev som alltid kommer undan. Skriv 5 roliga, realistiska ursäkter för att ha glömt matte-läxan i en svensk gymnasieskola – lägg in drama och humor."</p>
+              <p class="prompt-text">"Du är en tonåring som alltid kommer undan. Ge 3 roliga ursäkter för att ha glömt matte-läxan på en svensk gymnasieskola – drama och humor."</p>
               <button onclick="runBattlePreset('battle1', 'med', this)">Kör</button>
             </div>
           </div>
@@ -189,7 +208,7 @@
             </div>
             <div class="round-prompt good">
               <h4>Med kontext:</h4>
-              <p class="prompt-text">"Du är en genuint rolig, lite awkward men charmig svensk gymnasieelev i 3:an. Snackar precis som en vanlig kille i klassen – massa 'typ', 'fan', 'alltså', emojis ibland, självdistans och svensk torr humor. Skriv 4-5 olika pickup lines / flörtiga öppningar jag kan säga till min crush som sitter två bänkar framför."</p>
+              <p class="prompt-text">"Du är en rolig, lite awkward svensk gymnasieelev. Snackar med 'typ', 'fan', 'alltså' och torr humor. Ge 3 pickup lines till en crush som sitter två bänkar framför."</p>
               <button onclick="runBattlePreset('battle2', 'med', this)">Kör</button>
             </div>
           </div>
@@ -216,7 +235,7 @@
       <!-- ====== SLIDE 10: Rond 3 ====== -->
       <section data-state="demo-slide">
         <h2>Rond 3: Skolan börjar för tidigt</h2>
-        <p>"Kom på 3 smarta lösningar på att skolan börjar för tidigt"</p>
+        <p>"Kom på smarta lösningar på att skolan börjar för tidigt"</p>
         <div class="demo-container small">
           <div class="round-prompts">
             <div class="round-prompt bad">
@@ -226,7 +245,7 @@
             </div>
             <div class="round-prompt good">
               <h4>Med kontext:</h4>
-              <p class="prompt-text">"Du är en elev på en svensk gymnasieskola som alltid är trött på morgonen. Ge 3 kreativa och realistiska förslag på hur man kan lösa problemet att skolan börjar kl 8, skriv som en debattartikel för skolans tidning."</p>
+              <p class="prompt-text">"Du är en trött gymnasieelev i Sverige. Ge 2 kreativa förslag på varför skolan borde börja kl 10, skriv som en insändare till skolans tidning."</p>
               <button onclick="runBattlePreset('battle3', 'med', this)">Kör</button>
             </div>
           </div>
