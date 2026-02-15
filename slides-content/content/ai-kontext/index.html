@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>AI & Kontext – Nyckeln till Smarta Svar</title>
+
+  <!-- Reveal.js via CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ====== SLIDE 1: Titel & Hook ====== -->
+      <section>
+        <h1>AI & Kontext</h1>
+        <h3>Nyckeln till Smarta Svar</h3>
+        <p class="subtitle">Utan bra kontext gissar AI fel.<br/>Med bra kontext? Magi.</p>
+        <p class="meta">Anton Sätterkvist &bull; DevOps-student & Tekniknörd</p>
+      </section>
+
+      <!-- ====== SLIDE 2: Hook / Intro ====== -->
+      <section>
+        <h2>Varför kontext?</h2>
+        <p>AI är en <strong>öppen dörr</strong> för alla. Det går sjukt fort och det är ett grymt verktyg.</p>
+        <p>Men det är <strong>inte perfekt</strong> – det hallucinerar ibland och man måste kolla fakta!</p>
+        <div class="fragment">
+          <p class="highlight-box">Prompt engineering är nyckeln – och <strong>kontext</strong> gör störst skillnad.</p>
+        </div>
+        <p class="fragment">Vi kör <strong>live-demos</strong> och ni får testa själva!</p>
+      </section>
+
+      <!-- ====== SLIDE 3: Hack 1 – Sammanfatta texter ====== -->
+      <section>
+        <h2>Hack 1: Sammanfatta långa texter</h2>
+        <div class="comparison">
+          <div class="bad-prompt">
+            <h4>Dålig prompt</h4>
+            <p class="prompt-text">"Sammanfatta det här"</p>
+            <p class="prompt-result">Missar viktiga grejer, blir fluffig och generisk.</p>
+          </div>
+          <div class="good-prompt">
+            <h4>Bra prompt + kontext</h4>
+            <p class="prompt-text">"Du är en gymnasielärare i historia. Sammanfatta texten på max 200 ord för en elev i åk 2 som pluggar inför nationella provet. Fokusera på orsaker, händelseförlopp och konsekvenser. Skriv enkelt på svenska."</p>
+            <p class="prompt-result">Mycket vassare och mer användbart!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 4: Hack 2 – Förklara svåra grejer ====== -->
+      <section>
+        <h2>Hack 2: Förklara svåra grejer enkelt</h2>
+        <div class="comparison">
+          <div class="bad-prompt">
+            <h4>Dålig prompt</h4>
+            <p class="prompt-text">"Förklara fotosyntes."</p>
+            <p class="prompt-result">Tråkig läroboksstil som ingen kommer ihåg.</p>
+          </div>
+          <div class="good-prompt">
+            <h4>Bra prompt + kontext</h4>
+            <p class="prompt-text">"Förklara fotosyntes som om jag är 12 år, använd en vardaglig jämförelse (typ som en fabrik), säg varför det är viktigt för klimatet och ge ett svenskt exempel."</p>
+            <p class="prompt-result">Roligare, fastnar bättre i huvudet!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 5: Hack 3 – Övningsfrågor ====== -->
+      <section>
+        <h2>Hack 3: Skapa övningsfrågor</h2>
+        <div class="comparison">
+          <div class="bad-prompt">
+            <h4>Dålig prompt</h4>
+            <p class="prompt-text">"Ge mig frågor om Andra världskriget."</p>
+            <p class="prompt-result">Slumpmässiga, oanpassade frågor.</p>
+          </div>
+          <div class="good-prompt">
+            <h4>Bra prompt + kontext</h4>
+            <p class="prompt-text">"Skapa 10 flervalsfrågor på medelnivå om Andra världskrigets orsaker och viktigaste händelser, anpassat för gymnasieprov enligt svenska läroplanen. Ge svar + förklaring."</p>
+            <p class="prompt-result">Perfekt anpassat till ditt prov!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 6: Interaktiv demo ====== -->
+      <section data-state="demo-slide">
+        <h2>Live-demo: Testa själv!</h2>
+        <p>Skriv en prompt och se skillnaden.</p>
+        <div class="demo-container">
+          <textarea id="prompt-input" rows="4" placeholder="Skriv din prompt här... T.ex. 'Förklara kvantfysik för en 16-åring på svenska, använd en jämförelse med fotboll.'"></textarea>
+          <div class="demo-controls">
+            <button id="run-btn" onclick="runPrompt()">Kör</button>
+            <select id="model-select">
+              <option value="anthropic/claude-sonnet-4">Claude Sonnet 4</option>
+              <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
+              <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
+            </select>
+          </div>
+          <div id="ai-response" class="ai-response">
+            <p class="placeholder-text">AI-svaret visas här...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 7: AI Battle – Regler ====== -->
+      <section>
+        <h2>AI Battle: Människor vs AI</h2>
+        <p>Tre snabba ronder – vem vinner?</p>
+        <div class="battle-rules">
+          <div class="rule fragment">
+            <span class="rule-num">1</span>
+            <span>Jag kör AI live – först <strong>utan</strong> kontext, sen <strong>med</strong>.</span>
+          </div>
+          <div class="rule fragment">
+            <span class="rule-num">2</span>
+            <span>Ni kommer på era bästa mänskliga svar!</span>
+          </div>
+          <div class="rule fragment">
+            <span class="rule-num">3</span>
+            <span>Vi röstar – lyft handen!</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 8: Rond 1 ====== -->
+      <section data-state="demo-slide">
+        <h2>Rond 1: Glömt läxan</h2>
+        <p>"Kom på 5 kreativa ursäkter för att ha glömt läxan"</p>
+        <div class="demo-container small">
+          <div class="round-prompts">
+            <div class="round-prompt">
+              <h4>Utan kontext:</h4>
+              <p class="prompt-text">"Ge mig 5 ursäkter för att ha glömt läxan."</p>
+            </div>
+            <div class="round-prompt">
+              <h4>Med kontext:</h4>
+              <p class="prompt-text">"Du är en tonårig elev som alltid kommer undan. Skriv 5 roliga, realistiska ursäkter för att ha glömt matte-läxan i en svensk gymnasieskola – lägg in drama och humor."</p>
+            </div>
+          </div>
+          <textarea id="battle1-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
+          <button onclick="runBattle('battle1-input', 'battle1-response')">Kör</button>
+          <div id="battle1-response" class="ai-response">
+            <p class="placeholder-text">Svar visas här...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 9: Rond 2 ====== -->
+      <section data-state="demo-slide">
+        <h2>Rond 2: Pickup lines</h2>
+        <p>"Skriv den roligaste pickup line:en för en crush i klassen"</p>
+        <div class="demo-container small">
+          <div class="round-prompts">
+            <div class="round-prompt">
+              <h4>Utan kontext:</h4>
+              <p class="prompt-text">"Ge mig en pickup line."</p>
+            </div>
+            <div class="round-prompt">
+              <h4>Med kontext:</h4>
+              <p class="prompt-text">"Du är en genuint rolig svensk gymnasieelev. Skriv en pickup line baserat på att vi sitter i ett klassrum, nån har pizza och crushen gillar gaming."</p>
+            </div>
+          </div>
+          <textarea id="battle2-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
+          <button onclick="runBattle('battle2-input', 'battle2-response')">Kör</button>
+          <div id="battle2-response" class="ai-response">
+            <p class="placeholder-text">Svar visas här...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 10: Rond 3 ====== -->
+      <section data-state="demo-slide">
+        <h2>Rond 3: Skolan börjar för tidigt</h2>
+        <p>"Kom på 3 smarta lösningar på att skolan börjar för tidigt"</p>
+        <div class="demo-container small">
+          <div class="round-prompts">
+            <div class="round-prompt">
+              <h4>Utan kontext:</h4>
+              <p class="prompt-text">"Ge lösningar på att skolan börjar tidigt."</p>
+            </div>
+            <div class="round-prompt">
+              <h4>Med kontext:</h4>
+              <p class="prompt-text">"Du är en elev på en svensk gymnasieskola som alltid är trött på morgonen. Ge 3 kreativa och realistiska förslag på hur man kan lösa problemet att skolan börjar kl 8, skriv som en debattartikel för skolans tidning."</p>
+            </div>
+          </div>
+          <textarea id="battle3-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
+          <button onclick="runBattle('battle3-input', 'battle3-response')">Kör</button>
+          <div id="battle3-response" class="ai-response">
+            <p class="placeholder-text">Svar visas här...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 11: Takeaway ====== -->
+      <section>
+        <h2>Kontext är kung!</h2>
+        <div class="takeaway-list">
+          <div class="takeaway-item fragment">
+            <span class="takeaway-num">1</span>
+            <span>Börja alltid med: <strong>"Du är en [roll]..."</strong></span>
+          </div>
+          <div class="takeaway-item fragment">
+            <span class="takeaway-num">2</span>
+            <span>Ange <strong>nivå</strong>: "Förklara som [ålder/nivå]"</span>
+          </div>
+          <div class="takeaway-item fragment">
+            <span class="takeaway-num">3</span>
+            <span>Ge <strong>detaljer</strong>: ämne, format, längd, språk</span>
+          </div>
+          <div class="takeaway-item fragment">
+            <span class="takeaway-num">4</span>
+            <span>Kolla alltid fakta – AI kan <strong>hallucinera</strong>!</span>
+          </div>
+        </div>
+        <p class="fragment highlight-box">Mer kontext = färre fel + mycket bättre svar</p>
+      </section>
+
+      <!-- ====== SLIDE 12: Avslut ====== -->
+      <section>
+        <h2>Tack!</h2>
+        <p>Testa hemma på läxan ikväll – det sparar er timmar!</p>
+        <div class="contact-info">
+          <p><strong>Anton Sätterkvist</strong></p>
+          <p>DevOps-student & Tekniknörd</p>
+          <div class="contact-links">
+            <a href="https://antonsatt.com" target="_blank">antonsatt.com</a>
+            <a href="https://github.com/AntonSatt" target="_blank">github.com/AntonSatt</a>
+            <a href="https://www.linkedin.com/in/anton-satterkvist/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <p class="questions">Frågor?</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- API Key Modal -->
+  <div id="api-key-modal" class="modal">
+    <div class="modal-content">
+      <h3>OpenRouter API-nyckel</h3>
+      <p>Ange din OpenRouter API-nyckel för att använda live-demos.</p>
+      <p class="modal-hint">Skaffa en gratis nyckel på <a href="https://openrouter.ai/keys" target="_blank">openrouter.ai/keys</a></p>
+      <input type="password" id="api-key-input" placeholder="sk-or-v1-..." />
+      <div class="modal-buttons">
+        <button id="save-key-btn" onclick="saveApiKey()">Spara</button>
+        <button class="secondary" onclick="closeModal()">Hoppa över</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reveal.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- Custom script -->
+  <script src="script.js"></script>
+</body>
+</html>

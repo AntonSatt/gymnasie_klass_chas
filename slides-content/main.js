@@ -21,12 +21,8 @@ const main = async () => {
 
     anchorEl.appendChild(titleSpan);
     sectionEl.appendChild(anchorEl);
-    
+
     // Prepend to ensure presentations come first
-    grid.prepend(sectionEl);
-    
-    // Prepend to ensure presentations come first, or append if desired. 
-    // Grid handles layout. Using prepend so the presentation is first item.
     grid.prepend(sectionEl);
   });
 };
