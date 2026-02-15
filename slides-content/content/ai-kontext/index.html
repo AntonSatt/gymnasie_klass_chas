@@ -156,6 +156,10 @@
               <button onclick="runBattlePreset('battle1', 'med', this)">Kör</button>
             </div>
           </div>
+          <div class="custom-prompt-row">
+            <textarea id="battle1-custom" rows="2" placeholder="Skriv en egen prompt..."></textarea>
+            <button onclick="runBattleCustom('battle1')">Kör</button>
+          </div>
         </div>
       </section>
 
@@ -165,6 +169,7 @@
         <div class="response-tabs">
           <button id="battle1-tab-utan" class="response-tab tab-utan active" onclick="showBattleTab('battle1', 'utan')">Utan kontext</button>
           <button id="battle1-tab-med" class="response-tab tab-med" onclick="showBattleTab('battle1', 'med')">Med kontext</button>
+          <button id="battle1-tab-egen" class="response-tab tab-egen" onclick="showBattleTab('battle1', 'egen')">Egen prompt</button>
         </div>
         <div id="battle1-response" class="ai-response result-slide">
           <p class="placeholder-text">Kör en prompt på föregående slide...</p>
@@ -188,6 +193,10 @@
               <button onclick="runBattlePreset('battle2', 'med', this)">Kör</button>
             </div>
           </div>
+          <div class="custom-prompt-row">
+            <textarea id="battle2-custom" rows="2" placeholder="Skriv en egen prompt..."></textarea>
+            <button onclick="runBattleCustom('battle2')">Kör</button>
+          </div>
         </div>
       </section>
 
@@ -197,6 +206,7 @@
         <div class="response-tabs">
           <button id="battle2-tab-utan" class="response-tab tab-utan active" onclick="showBattleTab('battle2', 'utan')">Utan kontext</button>
           <button id="battle2-tab-med" class="response-tab tab-med" onclick="showBattleTab('battle2', 'med')">Med kontext</button>
+          <button id="battle2-tab-egen" class="response-tab tab-egen" onclick="showBattleTab('battle2', 'egen')">Egen prompt</button>
         </div>
         <div id="battle2-response" class="ai-response result-slide">
           <p class="placeholder-text">Kör en prompt på föregående slide...</p>
@@ -220,6 +230,10 @@
               <button onclick="runBattlePreset('battle3', 'med', this)">Kör</button>
             </div>
           </div>
+          <div class="custom-prompt-row">
+            <textarea id="battle3-custom" rows="2" placeholder="Skriv en egen prompt..."></textarea>
+            <button onclick="runBattleCustom('battle3')">Kör</button>
+          </div>
         </div>
       </section>
 
@@ -229,6 +243,7 @@
         <div class="response-tabs">
           <button id="battle3-tab-utan" class="response-tab tab-utan active" onclick="showBattleTab('battle3', 'utan')">Utan kontext</button>
           <button id="battle3-tab-med" class="response-tab tab-med" onclick="showBattleTab('battle3', 'med')">Med kontext</button>
+          <button id="battle3-tab-egen" class="response-tab tab-egen" onclick="showBattleTab('battle3', 'egen')">Egen prompt</button>
         </div>
         <div id="battle3-response" class="ai-response result-slide">
           <p class="placeholder-text">Kör en prompt på föregående slide...</p>

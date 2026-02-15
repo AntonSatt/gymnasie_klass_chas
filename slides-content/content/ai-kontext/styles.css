@@ -427,6 +427,45 @@
   color: var(--green);
 }
 
+.response-tab.tab-egen.active {
+  background: rgba(59, 140, 196, 0.15);
+  border-color: var(--blue-light);
+  color: var(--blue-light);
+}
+
+/* === Custom prompt row === */
+
+.custom-prompt-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.custom-prompt-row textarea {
+  flex: 1;
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 2px solid #30363d;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7em;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.custom-prompt-row textarea:focus {
+  border-color: var(--blue);
+}
+
+.custom-prompt-row button {
+  padding: 8px 20px !important;
+  font-size: 0.75em !important;
+  margin: 0 !important;
+}
+
 /* === Battle rules === */
 
 .battle-rules {

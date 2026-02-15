@@ -141,9 +141,9 @@ async function runPrompt() {
 // ---- Battle Rounds ----
 
 const battleResults = {
-  battle1: { utan: null, med: null },
-  battle2: { utan: null, med: null },
-  battle3: { utan: null, med: null },
+  battle1: { utan: null, med: null, egen: null },
+  battle2: { utan: null, med: null, egen: null },
+  battle3: { utan: null, med: null, egen: null },
 };
 
 // Track which tab is currently active per round
@@ -190,6 +190,42 @@ async function runBattlePreset(roundId, type, button) {
   }
 }
 
+async function runBattleCustom(roundId) {
+  const textarea = document.getElementById(roundId + '-custom');
+  const responseEl = document.getElementById(roundId + '-response');
+  const button = textarea.parentElement.querySelector('button');
+
+  const prompt = textarea.value.trim();
+  if (!prompt) return;
+
+  button.disabled = true;
+  button.textContent = 'Tänker...';
+
+  activeTabs[roundId] = 'egen';
+  updateTabUI(roundId, 'egen');
+  responseEl.className = 'ai-response result-slide loading';
+  responseEl.innerHTML = 'AI tänker...';
+
+  Reveal.next();
+
+  try {
+    const model = document.getElementById('model-select')
+      ? document.getElementById('model-select').value
+      : 'google/gemini-3-flash-preview';
+    const result = await callOpenRouter(prompt, model);
+    battleResults[roundId].egen = renderMarkdown(result);
+    responseEl.className = 'ai-response result-slide';
+    responseEl.innerHTML = battleResults[roundId].egen;
+  } catch (err) {
+    responseEl.className = 'ai-response result-slide error';
+    responseEl.textContent = err.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Kör';
+    Reveal.layout();
+  }
+}
+
 function showBattleTab(roundId, type) {
   activeTabs[roundId] = type;
   updateTabUI(roundId, type);
@@ -208,10 +244,10 @@ function showBattleTab(roundId, type) {
 }
 
 function updateTabUI(roundId, activeType) {
-  const utanTab = document.getElementById(roundId + '-tab-utan');
-  const medTab = document.getElementById(roundId + '-tab-med');
-  if (utanTab) utanTab.classList.toggle('active', activeType === 'utan');
-  if (medTab) medTab.classList.toggle('active', activeType === 'med');
+  ['utan', 'med', 'egen'].forEach(function (type) {
+    var tab = document.getElementById(roundId + '-tab-' + type);
+    if (tab) tab.classList.toggle('active', activeType === type);
+  });
 }
 
 // ---- Keyboard shortcut: press 'k' to open API key modal ----
