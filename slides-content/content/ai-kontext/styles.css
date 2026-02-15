@@ -850,10 +850,13 @@
   .custom-prompt-row {
     flex-direction: column;
     gap: 6px;
+    /* Keep the prompt row sticky at bottom when keyboard opens */
+    position: relative;
+    z-index: 10;
   }
 
   .custom-prompt-row textarea {
-    font-size: 0.9em !important;
+    font-size: 16px !important;  /* 16px prevents iOS auto-zoom on focus */
     padding: 10px !important;
     min-height: 44px;
   }

@@ -300,6 +300,27 @@ document.getElementById('api-key-input').addEventListener('keydown', function (e
   }
 });
 
+// ---- Mobile keyboard fix ----
+// When the virtual keyboard opens on mobile, scroll the textarea into view
+// so the user can see what they're typing.
+
+if (isMobile) {
+  document.querySelectorAll('.custom-prompt-row textarea').forEach(function (textarea) {
+    textarea.addEventListener('focus', function () {
+      var el = this;
+      // Wait for keyboard to open, then scroll into view
+      setTimeout(function () {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 350);
+    });
+  });
+
+  // Recalculate Reveal layout when keyboard opens/closes (viewport resize)
+  window.visualViewport && window.visualViewport.addEventListener('resize', function () {
+    Reveal.layout();
+  });
+}
+
 // ---- Init ----
 
 loadApiKey();
