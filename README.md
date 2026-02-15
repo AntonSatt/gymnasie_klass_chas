@@ -17,11 +17,4 @@ Det här repot innehåller interaktiva Reveal.js-presentationer för gymnasieele
 - Tailwind (landningssidan)
 - OpenRouter API (för live-demo i “AI & Kontext”)
 
-## Struktur (kort)
-
-- `slides-content/` – webbsidan + presentationskoden
-- `slides-content/content/` – själva presentationerna
-
-## License
-
-MIT
+© Anton Sätterkvist
