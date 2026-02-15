@@ -134,6 +134,7 @@ async function runPrompt() {
   } finally {
     button.disabled = false;
     button.textContent = 'Kör';
+    Reveal.layout();
   }
 }
 
@@ -168,6 +169,7 @@ async function runBattle(inputId, responseId) {
   } finally {
     button.disabled = false;
     button.textContent = 'Kör';
+    Reveal.layout();
   }
 }
 
