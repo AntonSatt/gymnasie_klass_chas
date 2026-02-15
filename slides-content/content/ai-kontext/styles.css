@@ -703,154 +703,258 @@
 }
 
 /* === Responsive for mobile === */
+/* On mobile, Reveal.js uses actual screen dimensions (no scaling),
+   so CSS sizes map 1:1 to real screen pixels. */
 
 @media (max-width: 768px) {
   .reveal {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .reveal .slides > section {
-    padding: 10px 16px;
+    padding: 8px 12px;
+    text-align: left;
+    overflow-y: auto;
   }
 
   .reveal h1 {
-    font-size: 2em;
+    font-size: 1.6em;
+    text-align: center;
   }
 
   .reveal h2 {
-    font-size: 1.4em;
-    padding-bottom: 6px;
+    font-size: 1.2em;
+    padding-bottom: 4px;
+    margin-bottom: 0.3em;
+    text-align: center;
+  }
+
+  .reveal h3 {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .reveal p {
+    font-size: 0.9em;
     margin-bottom: 0.4em;
   }
 
-  /* Stack side-by-side layouts */
-  .comparison {
-    flex-direction: column;
-    gap: 10px;
+  /* Title slide */
+  .subtitle {
+    font-size: 0.9em;
   }
 
+  .meta {
+    font-size: 0.7em;
+  }
+
+  /* Stack all side-by-side layouts vertically */
+  .comparison,
   .round-prompts {
     flex-direction: column;
     gap: 8px;
   }
 
-  .contact-links {
-    flex-direction: column;
-    align-items: center;
+  .bad-prompt, .good-prompt {
+    padding: 10px 12px;
   }
 
-  /* Bigger touch targets for buttons */
+  .prompt-text {
+    font-size: 0.8em !important;
+    padding: 6px 8px !important;
+  }
+
+  .prompt-result {
+    font-size: 0.75em;
+  }
+
+  /* Round prompt cards */
+  .round-prompt {
+    padding: 8px 10px;
+  }
+
+  .round-prompt h4 {
+    font-size: 0.8em;
+  }
+
+  /* Buttons: big, full-width, easy to tap */
   .demo-container button,
   .demo-controls button,
   .round-prompt button {
-    padding: 12px 24px !important;
-    font-size: 1em !important;
+    padding: 12px 20px !important;
+    font-size: 0.9em !important;
     width: 100%;
-    margin-top: 8px !important;
+    margin-top: 6px !important;
+    border-radius: 8px;
+  }
+
+  /* Demo container */
+  .demo-container {
+    max-width: 100%;
+  }
+
+  .demo-container.small {
+    font-size: 1em;
   }
 
   /* Model selector full width */
   .demo-controls {
     flex-direction: column;
+    gap: 6px;
   }
 
   .demo-controls select {
     width: 100%;
-    padding: 10px 14px;
-    font-size: 1em;
+    padding: 10px 12px;
+    font-size: 0.9em;
   }
 
-  /* Textarea easier to type in */
-  .demo-container textarea,
-  .custom-prompt-row textarea {
-    font-size: 1em;
-    padding: 10px 12px;
-    min-height: 60px;
+  /* Textareas: comfortable to type on phone */
+  .demo-container textarea {
+    font-size: 0.9em;
+    padding: 10px;
+    min-height: 50px;
   }
 
   .custom-prompt-row {
     flex-direction: column;
+    gap: 6px;
   }
 
-  /* Tabs: wrap and fill width */
+  .custom-prompt-row textarea {
+    font-size: 0.9em !important;
+    padding: 10px !important;
+    min-height: 44px;
+  }
+
+  /* Tabs: fill width, easy to tap */
   .response-tabs {
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 4px;
   }
 
   .response-tab {
     flex: 1;
     min-width: 0;
-    padding: 10px 12px;
-    font-size: 0.85em;
+    padding: 10px 8px;
+    font-size: 0.75em;
     text-align: center;
   }
 
-  /* Result slide: use more screen space */
-  .ai-response.result-slide {
-    max-height: 60vh;
-    max-width: 100%;
-    padding: 14px 16px;
+  /* Result slide: fill the screen */
+  .ai-response {
+    max-height: none;
     font-size: 0.85em;
   }
 
-  /* Prompt text readable */
-  .prompt-text {
-    font-size: 0.8em;
-  }
-
-  .round-prompt .prompt-text {
-    font-size: 0.75em;
-  }
-
-  /* Highlight box tighter */
-  .highlight-box {
-    padding: 12px 16px;
+  .ai-response.result-slide {
+    max-height: 65vh;
     max-width: 100%;
-    font-size: 0.95em;
+    padding: 12px 14px;
+    font-size: 0.85em;
+  }
+
+  .ai-response.result-slide h1,
+  .ai-response.result-slide h2,
+  .ai-response.result-slide h3 {
+    font-size: 1em;
+    text-align: left;
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    padding: 10px 14px;
+    max-width: 100%;
+    font-size: 0.85em;
   }
 
   /* Battle rules compact */
+  .battle-rules {
+    margin-top: 0.5em;
+  }
+
   .rule {
-    padding: 10px 14px;
+    padding: 8px 12px;
     max-width: 100%;
-    font-size: 0.9em;
-    gap: 10px;
+    font-size: 0.85em;
+    gap: 8px;
+    margin: 6px auto;
   }
 
   .rule-num {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    font-size: 1em;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    font-size: 0.85em;
   }
 
   /* Takeaway compact */
-  .takeaway-item {
-    padding: 10px 14px;
-    font-size: 0.85em;
-    gap: 10px;
-  }
-
-  .takeaway-num {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-    font-size: 0.9em;
-  }
-
   .takeaway-list {
     max-width: 100%;
   }
 
-  /* QR smaller on mobile */
-  .qr-share img {
-    width: 200px;
-    height: 200px;
+  .takeaway-item {
+    padding: 8px 12px;
+    font-size: 0.8em;
+    gap: 8px;
+    margin: 6px 0;
   }
 
-  /* Modal fits screen */
+  .takeaway-num {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    font-size: 0.8em;
+  }
+
+  /* Contact links stack */
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .contact-links a {
+    font-size: 0.8em;
+    padding: 8px 16px;
+  }
+
+  .questions {
+    font-size: 1.1em;
+    margin-top: 0.5em;
+  }
+
+  /* QR code */
+  .qr-share img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .qr-hint {
+    font-size: 0.8em;
+  }
+
+  /* Modal: fit phone screen */
   .modal-content {
-    padding: 20px 24px;
+    padding: 16px 20px;
+    border-radius: 12px;
+  }
+
+  .modal-content h3 {
+    font-size: 1.1em;
+  }
+
+  .modal-content p {
+    font-size: 0.85em;
+  }
+
+  .modal-content input {
+    font-size: 0.9em;
+    padding: 10px 12px;
+  }
+
+  .modal-buttons button {
+    padding: 10px 20px;
+    font-size: 0.85em;
   }
 }

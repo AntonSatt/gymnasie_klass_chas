@@ -8,15 +8,22 @@ const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 let API_KEY = '';
 
 // ---- Initialize Reveal.js ----
+var isMobile = window.innerWidth <= 768;
+
 Reveal.initialize({
   controls: true,
   progress: true,
   history: true,
-  center: true,
+  center: !isMobile,
   hash: true,
   transition: 'slide',
-  width: 1280,
-  height: 720,
+  // On mobile: use actual screen size so text renders at real size
+  // On desktop: use standard presentation dimensions
+  width: isMobile ? window.innerWidth : 1280,
+  height: isMobile ? window.innerHeight : 720,
+  margin: isMobile ? 0.02 : 0.04,
+  minScale: isMobile ? 1 : 0.2,
+  maxScale: isMobile ? 1 : 2.0,
 });
 
 // ---- API Key Management ----
