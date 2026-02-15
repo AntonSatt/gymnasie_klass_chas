@@ -534,68 +534,84 @@
 
 /* === Contact / Thank you === */
 
-.contact-info {
-  margin: 1em auto;
+.outro-cta {
+  font-size: 0.95em;
+  color: var(--text-muted);
+  margin-bottom: 0.6em;
+}
+
+.outro-card {
+  background: var(--bg-card);
+  border: 1px solid #30363d;
+  border-radius: 16px;
+  padding: 24px 32px;
+  max-width: 500px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 0.8em;
+.outro-identity {
+  margin-bottom: 1em;
 }
 
-.contact-links a {
-  color: var(--blue-light);
-  text-decoration: none;
+.outro-name {
+  font-size: 1.3em;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.1em;
+}
+
+.outro-role {
   font-size: 0.85em;
-  padding: 6px 14px;
-  border: 1px solid var(--blue);
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
+  color: var(--text-muted);
+  margin: 0;
 }
 
-.contact-links a:hover {
-  background: var(--blue);
-  color: white;
-}
-
-/* === Outro layout === */
-
-.outro-layout {
+.outro-qr-row {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 60px;
-  margin-top: 0.8em;
-}
-
-.outro-left {
-  text-align: center;
-}
-
-.outro-right {
-  text-align: center;
+  margin-bottom: 1em;
 }
 
 .linkedin-qr {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.4em;
 }
 
 .linkedin-qr img {
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   border-radius: 10px;
   border: 2px solid var(--blue);
 }
 
+.outro-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.outro-links a {
+  color: var(--blue-light);
+  text-decoration: none;
+  font-size: 0.8em;
+  padding: 5px 14px;
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.outro-links a:hover {
+  background: var(--blue);
+  color: white;
+}
+
 .questions {
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: var(--yellow);
-  margin-top: 0.8em;
+  margin-top: 0.6em;
   font-weight: 700;
 }
 
@@ -941,26 +957,45 @@
     font-size: 0.8em;
   }
 
-  /* Outro stacks on mobile */
-  .outro-layout {
-    flex-direction: column;
-    gap: 16px;
+  /* Outro compact on mobile */
+  .outro-card {
+    padding: 14px 16px;
+    border-radius: 12px;
   }
 
-  .contact-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+  .outro-name {
+    font-size: 1.1em;
   }
 
-  .contact-links a {
+  .outro-role {
     font-size: 0.8em;
-    padding: 8px 16px;
+  }
+
+  .outro-identity {
+    margin-bottom: 0.6em;
+  }
+
+  .outro-qr-row {
+    margin-bottom: 0.6em;
   }
 
   .linkedin-qr img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .linkedin-qr svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .outro-links {
+    gap: 8px;
+  }
+
+  .outro-links a {
+    font-size: 0.75em;
+    padding: 6px 12px;
   }
 
   .questions {
