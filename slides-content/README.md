@@ -1,19 +1,23 @@
-# The Dopamine Trap - Interactive Presentation
+# Gymnasie-presentationer – Anton Sätterkvist
 
-An interactive reveal.js presentation about AI, dopamine manipulation, and the hidden vulnerabilities in human psychology.
+Interaktiva Reveal.js-presentationer riktade till gymnasieelever.
 
-## 🚀 Live Demo
+## Live Demo
 
-Once deployed to GitHub Pages, your presentation will be available at:
+Deployad via GitHub Pages:
 `https://AntonSatt.github.io/gymnasie_klass_chas/`
 
-## 📖 About
+## Presentationer
 
-This presentation explores:
-- How AI exploits human psychology through dopamine manipulation
-- The "variable reward schedule" mechanism that makes AI tools addictive
-- Security vulnerabilities in human behavior (not just in systems)
-- Practical strategies to maintain control over AI tools
+### 1. Dopaminfällan: AI & Din Hjärna
+Hur AI utnyttjar hjärnans belöningssystem, dopaminmanipulation och praktiska strategier.
+
+### 2. AI & Kontext: Nyckeln till Smarta Svar (NY)
+15-20 min presentation om hur gymnasieelever kan använda AI smartare genom bättre kontext och prompt engineering. Inkluderar:
+- Live-demos med OpenRouter API (Claude / GPT)
+- Side-by-side jämförelser: dålig vs bra prompt
+- Interaktiv AI Battle (Människor vs AI)
+- Studiehacks: sammanfatta texter, förklara svåra grejer, skapa övningsfrågor
 
 **Speaker:** Anton Sätterkvist (DevOps & Security)
 
@@ -45,34 +49,51 @@ npm run build
 
 The built files will be in `slides-content/dist/gymnasie_klass_chas/`.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 slides-content/
 ├── content/
-│   ├── dopamine-trap.md    # Main presentation markdown
-│   └── slides.html          # Slide viewer template
+│   ├── dopamine-trap.md       # Dopaminfällan (markdown slides)
+│   ├── ai-kontext/            # AI & Kontext (standalone)
+│   │   ├── index.html         # Reveal.js presentation (CDN)
+│   │   ├── styles.css         # Swedish theme (blue/yellow)
+│   │   └── script.js          # OpenRouter API integration
+│   └── slides.html            # Markdown slide viewer template
 ├── css/
-│   └── slides.scss          # Custom hacker-themed styling
+│   └── slides.scss            # Dopaminfällan styling
 ├── js/
-│   └── slides.js            # Reveal.js initialization
+│   └── slides.js              # Reveal.js init (webpack)
 ├── data/
-│   └── slides.json          # Slide metadata
+│   └── slides.json            # Slide metadata
 ├── scripts/
-│   └── extractSlideData.js  # Build script
-└── index.html               # Landing page with slide list
+│   └── extractSlideData.js    # Build script
+└── index.html                 # Landing page
 ```
 
-## 🎨 Theme
+## AI & Kontext – OpenRouter API Setup
 
-The presentation uses a custom "hacker aesthetic" theme with:
-- Terminal-style monospace font (Courier New)
-- Matrix-green text (`#00ff41`)
-- Dark background (`#050505`)
-- Glowing effects and borders
-- Code blocks with syntax highlighting
+AI & Kontext-presentationen har inbyggd live-demo med OpenRouter API. Så här sätter du upp det:
 
-## 🌐 GitHub Pages Deployment
+1. Skaffa en API-nyckel på [openrouter.ai/keys](https://openrouter.ai/keys)
+2. Starta presentationen (`content/ai-kontext/index.html`)
+3. Nyckeln begärs automatiskt vid första demo-sliden, eller tryck `Alt+K`
+4. Nyckeln sparas i localStorage (behöver bara anges en gång per webbläsare)
+
+Modeller som stöds: Claude Sonnet 4, Claude 3.5 Sonnet, GPT-4o Mini.
+
+**Kör AI-presentationen lokalt (utan webpack):**
+
+```bash
+# Enklast med Python:
+cd slides-content/content/ai-kontext
+python3 -m http.server 8080
+# Öppna http://localhost:8080
+```
+
+Eller öppna `index.html` direkt i webbläsaren (API-anrop kräver dock en server pga CORS).
+
+## GitHub Pages Deployment
 
 ### Automatic Deployment
 
