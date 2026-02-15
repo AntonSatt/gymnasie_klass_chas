@@ -22,6 +22,20 @@ Reveal.initialize({
 // ---- API Key Management ----
 
 function loadApiKey() {
+  // 1. Check URL params first (from QR code share link)
+  const params = new URLSearchParams(window.location.search);
+  const urlKey = params.get('apikey');
+  if (urlKey) {
+    API_KEY = urlKey;
+    localStorage.setItem('openrouter-api-key', urlKey);
+    // Clean the key from the URL so it's not visible in the address bar
+    params.delete('apikey');
+    const cleanURL = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+    history.replaceState(null, '', cleanURL);
+    return;
+  }
+
+  // 2. Fall back to localStorage
   const stored = localStorage.getItem('openrouter-api-key');
   if (stored) {
     API_KEY = stored;
@@ -48,8 +62,34 @@ function saveApiKey() {
   if (key) {
     API_KEY = key;
     localStorage.setItem('openrouter-api-key', key);
+    updateShareQR();
   }
   closeModal();
+}
+
+// ---- QR Code Sharing ----
+
+function getShareURL() {
+  const base = window.location.origin + window.location.pathname;
+  return base + '?apikey=' + encodeURIComponent(API_KEY);
+}
+
+function updateShareQR() {
+  const qrImg = document.getElementById('share-qr-img');
+  const qrHint = document.getElementById('share-qr-hint');
+  if (!qrImg) return;
+
+  if (!API_KEY) {
+    qrImg.src = '';
+    qrImg.style.display = 'none';
+    if (qrHint) qrHint.textContent = 'Sätt en API-nyckel först (Alt+K)';
+    return;
+  }
+
+  const shareURL = getShareURL();
+  qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&color=e6edf3&bgcolor=161b22&data=' + encodeURIComponent(shareURL);
+  qrImg.style.display = 'block';
+  if (qrHint) qrHint.textContent = 'Scanna för att testa på mobilen!';
 }
 
 // ---- OpenRouter API Call ----
@@ -249,6 +289,7 @@ document.getElementById('api-key-input').addEventListener('keydown', function (e
 // ---- Init ----
 
 loadApiKey();
+updateShareQR();
 
 // Show API key modal on first demo slide if no key is set
 Reveal.on('slidechanged', function (event) {
