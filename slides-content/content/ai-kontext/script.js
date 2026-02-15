@@ -140,16 +140,32 @@ async function runPrompt() {
 
 // ---- Battle Rounds ----
 
-async function runBattle(inputId, responseId) {
-  const input = document.getElementById(inputId);
-  const responseEl = document.getElementById(responseId);
-  const button = input.parentElement.querySelector('button');
+const battleResults = {
+  battle1: { utan: null, med: null },
+  battle2: { utan: null, med: null },
+  battle3: { utan: null, med: null },
+};
 
-  const prompt = input.value.trim();
-  if (!prompt) return;
+// Track which tab is currently active per round
+const activeTabs = {
+  battle1: 'utan',
+  battle2: 'utan',
+  battle3: 'utan',
+};
+
+async function runBattlePreset(roundId, type, button) {
+  // Read prompt text from the parent .round-prompt card
+  const promptEl = button.closest('.round-prompt').querySelector('.prompt-text');
+  const prompt = promptEl.textContent.replace(/^[""]|[""]$/g, '').trim();
+
+  const responseEl = document.getElementById(roundId + '-response');
 
   button.disabled = true;
   button.textContent = 'Tänker...';
+
+  // Switch to this tab and show loading
+  activeTabs[roundId] = type;
+  updateTabUI(roundId, type);
   responseEl.className = 'ai-response result-slide loading';
   responseEl.innerHTML = 'AI tänker...';
 
@@ -161,8 +177,9 @@ async function runBattle(inputId, responseId) {
       ? document.getElementById('model-select').value
       : 'google/gemini-3-flash-preview';
     const result = await callOpenRouter(prompt, model);
+    battleResults[roundId][type] = renderMarkdown(result);
     responseEl.className = 'ai-response result-slide';
-    responseEl.innerHTML = renderMarkdown(result);
+    responseEl.innerHTML = battleResults[roundId][type];
   } catch (err) {
     responseEl.className = 'ai-response result-slide error';
     responseEl.textContent = err.message;
@@ -171,6 +188,30 @@ async function runBattle(inputId, responseId) {
     button.textContent = 'Kör';
     Reveal.layout();
   }
+}
+
+function showBattleTab(roundId, type) {
+  activeTabs[roundId] = type;
+  updateTabUI(roundId, type);
+
+  const responseEl = document.getElementById(roundId + '-response');
+  const stored = battleResults[roundId][type];
+
+  if (stored) {
+    responseEl.className = 'ai-response result-slide';
+    responseEl.innerHTML = stored;
+  } else {
+    responseEl.className = 'ai-response result-slide';
+    responseEl.innerHTML = '<p class="placeholder-text">Inte körd än – gå tillbaka och kör denna prompt.</p>';
+  }
+  Reveal.layout();
+}
+
+function updateTabUI(roundId, activeType) {
+  const utanTab = document.getElementById(roundId + '-tab-utan');
+  const medTab = document.getElementById(roundId + '-tab-med');
+  if (utanTab) utanTab.classList.toggle('active', activeType === 'utan');
+  if (medTab) medTab.classList.toggle('active', activeType === 'med');
 }
 
 // ---- Keyboard shortcut: press 'k' to open API key modal ----

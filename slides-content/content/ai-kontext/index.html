@@ -145,23 +145,27 @@
         <p>"Kom på 5 kreativa ursäkter för att ha glömt läxan"</p>
         <div class="demo-container small">
           <div class="round-prompts">
-            <div class="round-prompt">
+            <div class="round-prompt bad">
               <h4>Utan kontext:</h4>
               <p class="prompt-text">"Ge mig 5 ursäkter för att ha glömt läxan."</p>
+              <button onclick="runBattlePreset('battle1', 'utan', this)">Kör</button>
             </div>
-            <div class="round-prompt">
+            <div class="round-prompt good">
               <h4>Med kontext:</h4>
               <p class="prompt-text">"Du är en tonårig elev som alltid kommer undan. Skriv 5 roliga, realistiska ursäkter för att ha glömt matte-läxan i en svensk gymnasieskola – lägg in drama och humor."</p>
+              <button onclick="runBattlePreset('battle1', 'med', this)">Kör</button>
             </div>
           </div>
-          <textarea id="battle1-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
-          <button onclick="runBattle('battle1-input', 'battle1-response')">Kör</button>
         </div>
       </section>
 
       <!-- ====== SLIDE 8b: Rond 1 resultat ====== -->
       <section>
         <h2>Rond 1: AI-svar</h2>
+        <div class="response-tabs">
+          <button id="battle1-tab-utan" class="response-tab tab-utan active" onclick="showBattleTab('battle1', 'utan')">Utan kontext</button>
+          <button id="battle1-tab-med" class="response-tab tab-med" onclick="showBattleTab('battle1', 'med')">Med kontext</button>
+        </div>
         <div id="battle1-response" class="ai-response result-slide">
           <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
@@ -173,23 +177,27 @@
         <p>"Skriv pickup lines till din crush i klassen"</p>
         <div class="demo-container small">
           <div class="round-prompts">
-            <div class="round-prompt">
+            <div class="round-prompt bad">
               <h4>Utan kontext:</h4>
               <p class="prompt-text">"Ge mig pickup lines."</p>
+              <button onclick="runBattlePreset('battle2', 'utan', this)">Kör</button>
             </div>
-            <div class="round-prompt">
+            <div class="round-prompt good">
               <h4>Med kontext:</h4>
               <p class="prompt-text">"Du är en genuint rolig, lite awkward men charmig svensk gymnasieelev i 3:an. Snackar precis som en vanlig kille i klassen – massa 'typ', 'fan', 'alltså', emojis ibland, självdistans och svensk torr humor. Skriv 4-5 olika pickup lines / flörtiga öppningar jag kan säga till min crush som sitter två bänkar framför."</p>
+              <button onclick="runBattlePreset('battle2', 'med', this)">Kör</button>
             </div>
           </div>
-          <textarea id="battle2-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
-          <button onclick="runBattle('battle2-input', 'battle2-response')">Kör</button>
         </div>
       </section>
 
       <!-- ====== SLIDE 9b: Rond 2 resultat ====== -->
       <section>
         <h2>Rond 2: AI-svar</h2>
+        <div class="response-tabs">
+          <button id="battle2-tab-utan" class="response-tab tab-utan active" onclick="showBattleTab('battle2', 'utan')">Utan kontext</button>
+          <button id="battle2-tab-med" class="response-tab tab-med" onclick="showBattleTab('battle2', 'med')">Med kontext</button>
+        </div>
         <div id="battle2-response" class="ai-response result-slide">
           <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
@@ -201,23 +209,27 @@
         <p>"Kom på 3 smarta lösningar på att skolan börjar för tidigt"</p>
         <div class="demo-container small">
           <div class="round-prompts">
-            <div class="round-prompt">
+            <div class="round-prompt bad">
               <h4>Utan kontext:</h4>
               <p class="prompt-text">"Ge lösningar på att skolan börjar tidigt."</p>
+              <button onclick="runBattlePreset('battle3', 'utan', this)">Kör</button>
             </div>
-            <div class="round-prompt">
+            <div class="round-prompt good">
               <h4>Med kontext:</h4>
               <p class="prompt-text">"Du är en elev på en svensk gymnasieskola som alltid är trött på morgonen. Ge 3 kreativa och realistiska förslag på hur man kan lösa problemet att skolan börjar kl 8, skriv som en debattartikel för skolans tidning."</p>
+              <button onclick="runBattlePreset('battle3', 'med', this)">Kör</button>
             </div>
           </div>
-          <textarea id="battle3-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
-          <button onclick="runBattle('battle3-input', 'battle3-response')">Kör</button>
         </div>
       </section>
 
       <!-- ====== SLIDE 10b: Rond 3 resultat ====== -->
       <section>
         <h2>Rond 3: AI-svar</h2>
+        <div class="response-tabs">
+          <button id="battle3-tab-utan" class="response-tab tab-utan active" onclick="showBattleTab('battle3', 'utan')">Utan kontext</button>
+          <button id="battle3-tab-med" class="response-tab tab-med" onclick="showBattleTab('battle3', 'med')">Med kontext</button>
+        </div>
         <div id="battle3-response" class="ai-response result-slide">
           <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
