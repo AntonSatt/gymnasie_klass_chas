@@ -705,12 +705,33 @@
 /* === Responsive for mobile === */
 
 @media (max-width: 768px) {
+  .reveal {
+    font-size: 18px;
+  }
+
+  .reveal .slides > section {
+    padding: 10px 16px;
+  }
+
+  .reveal h1 {
+    font-size: 2em;
+  }
+
+  .reveal h2 {
+    font-size: 1.4em;
+    padding-bottom: 6px;
+    margin-bottom: 0.4em;
+  }
+
+  /* Stack side-by-side layouts */
   .comparison {
     flex-direction: column;
+    gap: 10px;
   }
 
   .round-prompts {
     flex-direction: column;
+    gap: 8px;
   }
 
   .contact-links {
@@ -718,7 +739,118 @@
     align-items: center;
   }
 
-  .reveal {
-    font-size: 20px;
+  /* Bigger touch targets for buttons */
+  .demo-container button,
+  .demo-controls button,
+  .round-prompt button {
+    padding: 12px 24px !important;
+    font-size: 1em !important;
+    width: 100%;
+    margin-top: 8px !important;
+  }
+
+  /* Model selector full width */
+  .demo-controls {
+    flex-direction: column;
+  }
+
+  .demo-controls select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1em;
+  }
+
+  /* Textarea easier to type in */
+  .demo-container textarea,
+  .custom-prompt-row textarea {
+    font-size: 1em;
+    padding: 10px 12px;
+    min-height: 60px;
+  }
+
+  .custom-prompt-row {
+    flex-direction: column;
+  }
+
+  /* Tabs: wrap and fill width */
+  .response-tabs {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .response-tab {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 0.85em;
+    text-align: center;
+  }
+
+  /* Result slide: use more screen space */
+  .ai-response.result-slide {
+    max-height: 60vh;
+    max-width: 100%;
+    padding: 14px 16px;
+    font-size: 0.85em;
+  }
+
+  /* Prompt text readable */
+  .prompt-text {
+    font-size: 0.8em;
+  }
+
+  .round-prompt .prompt-text {
+    font-size: 0.75em;
+  }
+
+  /* Highlight box tighter */
+  .highlight-box {
+    padding: 12px 16px;
+    max-width: 100%;
+    font-size: 0.95em;
+  }
+
+  /* Battle rules compact */
+  .rule {
+    padding: 10px 14px;
+    max-width: 100%;
+    font-size: 0.9em;
+    gap: 10px;
+  }
+
+  .rule-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 1em;
+  }
+
+  /* Takeaway compact */
+  .takeaway-item {
+    padding: 10px 14px;
+    font-size: 0.85em;
+    gap: 10px;
+  }
+
+  .takeaway-num {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    font-size: 0.9em;
+  }
+
+  .takeaway-list {
+    max-width: 100%;
+  }
+
+  /* QR smaller on mobile */
+  .qr-share img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Modal fits screen */
+  .modal-content {
+    padding: 20px 24px;
   }
 }

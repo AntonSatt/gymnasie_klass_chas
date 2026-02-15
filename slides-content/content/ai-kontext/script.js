@@ -21,6 +21,8 @@ Reveal.initialize({
 
 // ---- API Key Management ----
 
+let cameFromShareLink = false;
+
 function loadApiKey() {
   // 1. Check URL params first (from QR code share link)
   const params = new URLSearchParams(window.location.search);
@@ -28,9 +30,10 @@ function loadApiKey() {
   if (urlKey) {
     API_KEY = urlKey;
     localStorage.setItem('openrouter-api-key', urlKey);
+    cameFromShareLink = true;
     // Clean the key from the URL so it's not visible in the address bar
     params.delete('apikey');
-    const cleanURL = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+    const cleanURL = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
     history.replaceState(null, '', cleanURL);
     return;
   }
@@ -70,8 +73,16 @@ function saveApiKey() {
 // ---- QR Code Sharing ----
 
 function getShareURL() {
-  const base = window.location.origin + window.location.pathname;
-  return base + '?apikey=' + encodeURIComponent(API_KEY);
+  // Find the demo slide index so the QR link lands there
+  var demoSlide = document.getElementById('slide-demo');
+  var slideHash = '';
+  if (demoSlide) {
+    var allSlides = Reveal.getSlides();
+    var idx = allSlides.indexOf(demoSlide);
+    if (idx >= 0) slideHash = '#/' + idx;
+  }
+  var base = window.location.origin + window.location.pathname;
+  return base + '?apikey=' + encodeURIComponent(API_KEY) + slideHash;
 }
 
 function updateShareQR() {
@@ -290,6 +301,16 @@ document.getElementById('api-key-input').addEventListener('keydown', function (e
 
 loadApiKey();
 updateShareQR();
+
+// If user came from QR share link, navigate to demo slide
+if (cameFromShareLink) {
+  var demoSlide = document.getElementById('slide-demo');
+  if (demoSlide) {
+    var allSlides = Reveal.getSlides();
+    var idx = allSlides.indexOf(demoSlide);
+    if (idx >= 0) Reveal.slide(idx);
+  }
+}
 
 // Show API key modal on first demo slide if no key is set
 Reveal.on('slidechanged', function (event) {
