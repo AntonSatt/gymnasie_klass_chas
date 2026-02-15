@@ -184,6 +184,8 @@ const activeTabs = {
   battle3: 'utan',
 };
 
+var DEFAULT_MODEL = 'google/gemini-3-flash-preview';
+
 async function runBattlePreset(roundId, type, button) {
   // Read prompt text from the parent .round-prompt card
   const promptEl = button.closest('.round-prompt').querySelector('.prompt-text');
@@ -204,10 +206,7 @@ async function runBattlePreset(roundId, type, button) {
   Reveal.next();
 
   try {
-    const model = document.getElementById('model-select')
-      ? document.getElementById('model-select').value
-      : 'google/gemini-3-flash-preview';
-    const result = await callOpenRouter(prompt, model);
+    const result = await callOpenRouter(prompt, DEFAULT_MODEL);
     battleResults[roundId][type] = renderMarkdown(result);
     responseEl.className = 'ai-response result-slide';
     responseEl.innerHTML = battleResults[roundId][type];
@@ -240,10 +239,7 @@ async function runBattleCustom(roundId) {
   Reveal.next();
 
   try {
-    const model = document.getElementById('model-select')
-      ? document.getElementById('model-select').value
-      : 'google/gemini-3-flash-preview';
-    const result = await callOpenRouter(prompt, model);
+    const result = await callOpenRouter(prompt, DEFAULT_MODEL);
     battleResults[roundId].egen = renderMarkdown(result);
     responseEl.className = 'ai-response result-slide';
     responseEl.innerHTML = battleResults[roundId].egen;

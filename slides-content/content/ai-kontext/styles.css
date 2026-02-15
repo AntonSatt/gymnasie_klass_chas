@@ -561,10 +561,41 @@
   color: white;
 }
 
+/* === Outro layout === */
+
+.outro-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 0.8em;
+}
+
+.outro-left {
+  text-align: center;
+}
+
+.outro-right {
+  text-align: center;
+}
+
+.linkedin-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linkedin-qr img {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  border: 2px solid var(--blue);
+}
+
 .questions {
   font-size: 1.5em;
   color: var(--yellow);
-  margin-top: 1em;
+  margin-top: 0.8em;
   font-weight: 700;
 }
 
@@ -907,7 +938,12 @@
     font-size: 0.8em;
   }
 
-  /* Contact links stack */
+  /* Outro stacks on mobile */
+  .outro-layout {
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .contact-links {
     flex-direction: column;
     align-items: center;
@@ -919,9 +955,14 @@
     padding: 8px 16px;
   }
 
+  .linkedin-qr img {
+    width: 120px;
+    height: 120px;
+  }
+
   .questions {
     font-size: 1.1em;
-    margin-top: 0.5em;
+    margin-top: 0.3em;
   }
 
   /* QR code */
