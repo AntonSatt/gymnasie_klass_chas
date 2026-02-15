@@ -91,6 +91,20 @@ async function callOpenRouter(prompt, model) {
   return data.choices[0].message.content;
 }
 
+// ---- Markdown rendering helper ----
+
+function renderMarkdown(text) {
+  if (typeof marked !== 'undefined') {
+    return marked.parse(text);
+  }
+  // Fallback: escape HTML and preserve line breaks
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\n/g, '<br>');
+}
+
 // ---- Demo Slide: Main prompt runner ----
 
 async function runPrompt() {
@@ -100,22 +114,22 @@ async function runPrompt() {
   const modelSelect = document.getElementById('model-select');
 
   const prompt = input.value.trim();
-  if (!prompt) {
-    responseEl.innerHTML = '<p style="color: #f85149;">Skriv en prompt först!</p>';
-    return;
-  }
+  if (!prompt) return;
 
   button.disabled = true;
   button.textContent = 'Tänker...';
-  responseEl.className = 'ai-response loading';
-  responseEl.textContent = 'AI tänker...';
+  responseEl.className = 'ai-response result-slide loading';
+  responseEl.innerHTML = 'AI tänker...';
+
+  // Advance to the result slide
+  Reveal.next();
 
   try {
     const result = await callOpenRouter(prompt, modelSelect.value);
-    responseEl.className = 'ai-response';
-    responseEl.textContent = result;
+    responseEl.className = 'ai-response result-slide';
+    responseEl.innerHTML = renderMarkdown(result);
   } catch (err) {
-    responseEl.className = 'ai-response error';
+    responseEl.className = 'ai-response result-slide error';
     responseEl.textContent = err.message;
   } finally {
     button.disabled = false;
@@ -131,25 +145,25 @@ async function runBattle(inputId, responseId) {
   const button = input.parentElement.querySelector('button');
 
   const prompt = input.value.trim();
-  if (!prompt) {
-    responseEl.innerHTML = '<p style="color: #f85149;">Klistra in en prompt!</p>';
-    return;
-  }
+  if (!prompt) return;
 
   button.disabled = true;
   button.textContent = 'Tänker...';
-  responseEl.className = 'ai-response loading';
-  responseEl.textContent = 'AI tänker...';
+  responseEl.className = 'ai-response result-slide loading';
+  responseEl.innerHTML = 'AI tänker...';
+
+  // Advance to the result slide
+  Reveal.next();
 
   try {
     const model = document.getElementById('model-select')
       ? document.getElementById('model-select').value
-      : 'anthropic/claude-sonnet-4';
+      : 'google/gemini-3-flash-preview';
     const result = await callOpenRouter(prompt, model);
-    responseEl.className = 'ai-response';
-    responseEl.textContent = result;
+    responseEl.className = 'ai-response result-slide';
+    responseEl.innerHTML = renderMarkdown(result);
   } catch (err) {
-    responseEl.className = 'ai-response error';
+    responseEl.className = 'ai-response result-slide error';
     responseEl.textContent = err.message;
   } finally {
     button.disabled = false;

@@ -14,6 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
+  <!-- Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
   <!-- Custom styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -100,14 +103,19 @@
           <div class="demo-controls">
             <button id="run-btn" onclick="runPrompt()">Kör</button>
             <select id="model-select">
+              <option value="google/gemini-3-flash-preview">Gemini 3 Flash</option>
               <option value="anthropic/claude-sonnet-4">Claude Sonnet 4</option>
-              <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
               <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
             </select>
           </div>
-          <div id="ai-response" class="ai-response">
-            <p class="placeholder-text">AI-svaret visas här...</p>
-          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 6b: Demo resultat ====== -->
+      <section>
+        <h2>AI-svar</h2>
+        <div id="ai-response" class="ai-response result-slide">
+          <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
       </section>
 
@@ -148,9 +156,14 @@
           </div>
           <textarea id="battle1-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
           <button onclick="runBattle('battle1-input', 'battle1-response')">Kör</button>
-          <div id="battle1-response" class="ai-response">
-            <p class="placeholder-text">Svar visas här...</p>
-          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 8b: Rond 1 resultat ====== -->
+      <section>
+        <h2>Rond 1: AI-svar</h2>
+        <div id="battle1-response" class="ai-response result-slide">
+          <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
       </section>
 
@@ -171,9 +184,14 @@
           </div>
           <textarea id="battle2-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
           <button onclick="runBattle('battle2-input', 'battle2-response')">Kör</button>
-          <div id="battle2-response" class="ai-response">
-            <p class="placeholder-text">Svar visas här...</p>
-          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 9b: Rond 2 resultat ====== -->
+      <section>
+        <h2>Rond 2: AI-svar</h2>
+        <div id="battle2-response" class="ai-response result-slide">
+          <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
       </section>
 
@@ -194,9 +212,14 @@
           </div>
           <textarea id="battle3-input" rows="3" placeholder="Klistra in eller ändra prompten här..."></textarea>
           <button onclick="runBattle('battle3-input', 'battle3-response')">Kör</button>
-          <div id="battle3-response" class="ai-response">
-            <p class="placeholder-text">Svar visas här...</p>
-          </div>
+        </div>
+      </section>
+
+      <!-- ====== SLIDE 10b: Rond 3 resultat ====== -->
+      <section>
+        <h2>Rond 3: AI-svar</h2>
+        <div id="battle3-response" class="ai-response result-slide">
+          <p class="placeholder-text">Kör en prompt på föregående slide...</p>
         </div>
       </section>
 
