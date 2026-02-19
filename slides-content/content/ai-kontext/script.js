@@ -6,8 +6,24 @@
 // ---- Configuration ----
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 let API_KEY = '';
+let cameFromShareLink = false;
 
-// ---- Initialize Reveal.js ----
+// ---- Load API key BEFORE Reveal so the hash is set first ----
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const urlKey = params.get('apikey');
+  if (urlKey) {
+    API_KEY = urlKey;
+    localStorage.setItem('openrouter-api-key', urlKey);
+    cameFromShareLink = true;
+    history.replaceState(null, '', window.location.pathname + '#/9');
+  } else {
+    const stored = localStorage.getItem('openrouter-api-key');
+    if (stored) API_KEY = stored;
+  }
+})();
+
+// ---- Initialize Reveal.js (reads #/9 from URL if set above) ----
 var isMobile = window.innerWidth <= 768;
 
 var revealReady = Reveal.initialize({
@@ -27,29 +43,6 @@ var revealReady = Reveal.initialize({
 });
 
 // ---- API Key Management ----
-
-let cameFromShareLink = false;
-
-function loadApiKey() {
-  // 1. Check URL params first (from QR code share link)
-  const params = new URLSearchParams(window.location.search);
-  const urlKey = params.get('apikey');
-  if (urlKey) {
-    API_KEY = urlKey;
-    localStorage.setItem('openrouter-api-key', urlKey);
-    cameFromShareLink = true;
-    // Clean the key from URL but set hash to #/9 so Reveal navigates to Rond 1
-    const cleanURL = window.location.pathname + '#/9';
-    history.replaceState(null, '', cleanURL);
-    return;
-  }
-
-  // 2. Fall back to localStorage
-  const stored = localStorage.getItem('openrouter-api-key');
-  if (stored) {
-    API_KEY = stored;
-  }
-}
 
 function showApiKeyModal() {
   const modal = document.getElementById('api-key-modal');
@@ -300,6 +293,10 @@ if (isMobile) {
   var overlayTA = document.getElementById('mobile-overlay-textarea');
   var activeRoundId = null;
 
+  if (!overlay) {
+    // Overlay HTML missing — skip setup but don't crash the script
+  } else {
+
   // Block all touch events from reaching Reveal.js
   overlay.addEventListener('touchstart', function (e) { e.stopPropagation(); });
   overlay.addEventListener('touchmove', function (e) { e.stopPropagation(); });
@@ -351,15 +348,27 @@ if (isMobile) {
   window.visualViewport && window.visualViewport.addEventListener('resize', function () {
     Reveal.layout();
   });
+
+  } // end if (overlay)
 }
 
 // ---- Init ----
 
-loadApiKey();
-
 revealReady.then(function () {
   updateShareQR();
+
+  // Navigate to Rond 1 if user came from QR share link
+  if (cameFromShareLink) {
+    Reveal.slide(9);
+  }
 });
+
+// Fallback: force navigate after 1 second in case .then() didn't work
+if (cameFromShareLink) {
+  setTimeout(function () {
+    Reveal.slide(9);
+  }, 1000);
+}
 
 // Show API key modal on first demo slide if no key is set
 Reveal.on('slidechanged', function (event) {
