@@ -32,6 +32,8 @@ Note: Den stora skillnaden är fokus. YH är väldigt hands-on och praktiskt. Du
 
 # Vilka är vi?
 
+![Chas Academy](chas-academy.svg) <!-- .element: style="max-width: 300px; margin-bottom: 0.5em;" -->
+
 *   Grundat **2017** av IT-konsultbolaget Chas Visual Management
 *   Sveriges **3:e största** IT-utbildare
 *   **9 utbildningar** inom tech

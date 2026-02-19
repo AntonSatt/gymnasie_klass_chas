@@ -1003,3 +1003,65 @@
     font-size: 0.85em;
   }
 }
+
+/* === Mobile input overlay === */
+
+#mobile-input-overlay {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: var(--bg-card);
+  border-top: 2px solid var(--blue);
+  padding: 12px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#mobile-input-overlay.visible {
+  display: flex;
+}
+
+#mobile-overlay-textarea {
+  width: 100%;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  border: 2px solid #30363d;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+}
+
+#mobile-overlay-textarea:focus {
+  border-color: var(--blue);
+}
+
+.mobile-overlay-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-overlay-buttons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+#mobile-overlay-send {
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  color: white;
+}
+
+#mobile-overlay-cancel {
+  background: #30363d;
+  color: var(--text-muted);
+}

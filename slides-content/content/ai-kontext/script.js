@@ -300,22 +300,47 @@ document.getElementById('api-key-input').addEventListener('keydown', function (e
   }
 });
 
-// ---- Mobile keyboard fix ----
-// When the virtual keyboard opens on mobile, scroll the textarea into view
-// so the user can see what they're typing.
+// ---- Mobile input overlay ----
+// Reveal.js transforms break scrollIntoView, so on mobile we show a
+// fixed overlay outside .reveal where the user can type freely.
 
 if (isMobile) {
+  var overlay = document.getElementById('mobile-input-overlay');
+  var overlayTA = document.getElementById('mobile-overlay-textarea');
+  var activeRoundId = null;
+
+  // Intercept focus on in-slide textareas → open overlay instead
   document.querySelectorAll('.custom-prompt-row textarea').forEach(function (textarea) {
     textarea.addEventListener('focus', function () {
-      var el = this;
-      // Wait for keyboard to open, then scroll into view
-      setTimeout(function () {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 350);
+      var self = this;
+      activeRoundId = self.id.replace('-custom', '');
+      self.blur();
+      overlayTA.value = self.value;
+      overlay.classList.add('visible');
+      setTimeout(function () { overlayTA.focus(); }, 100);
     });
   });
 
-  // Recalculate Reveal layout when keyboard opens/closes (viewport resize)
+  // "Kör" button in overlay
+  document.getElementById('mobile-overlay-send').addEventListener('click', function () {
+    if (activeRoundId) {
+      document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
+      overlay.classList.remove('visible');
+      runBattleCustom(activeRoundId);
+      activeRoundId = null;
+    }
+  });
+
+  // "Avbryt" button in overlay
+  document.getElementById('mobile-overlay-cancel').addEventListener('click', function () {
+    if (activeRoundId) {
+      document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
+    }
+    overlay.classList.remove('visible');
+    activeRoundId = null;
+  });
+
+  // Recalculate Reveal layout when keyboard opens/closes
   window.visualViewport && window.visualViewport.addEventListener('resize', function () {
     Reveal.layout();
   });
