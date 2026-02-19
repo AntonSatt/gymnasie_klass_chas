@@ -29,6 +29,7 @@ Reveal.initialize({
 // ---- API Key Management ----
 
 let cameFromShareLink = false;
+let shareSlideTarget = null;
 
 function loadApiKey() {
   // 1. Check URL params first (from QR code share link)
@@ -38,8 +39,11 @@ function loadApiKey() {
     API_KEY = urlKey;
     localStorage.setItem('openrouter-api-key', urlKey);
     cameFromShareLink = true;
-    // Clean the key from the URL so it's not visible in the address bar
+    // Save slide target before cleaning URL
+    shareSlideTarget = params.get('slide');
+    // Clean the key and slide from the URL so it's not visible in the address bar
     params.delete('apikey');
+    params.delete('slide');
     const cleanURL = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
     history.replaceState(null, '', cleanURL);
     return;
@@ -82,14 +86,14 @@ function saveApiKey() {
 function getShareURL() {
   // Find the demo slide index so the QR link lands there
   var demoSlide = document.getElementById('slide-battle1');
-  var slideHash = '';
+  var slideIdx = '';
   if (demoSlide) {
     var allSlides = Reveal.getSlides();
     var idx = allSlides.indexOf(demoSlide);
-    if (idx >= 0) slideHash = '#/' + idx;
+    if (idx >= 0) slideIdx = idx;
   }
   var base = window.location.origin + window.location.pathname;
-  return base + '?apikey=' + encodeURIComponent(API_KEY) + slideHash;
+  return base + '?apikey=' + encodeURIComponent(API_KEY) + (slideIdx !== '' ? '&slide=' + slideIdx : '');
 }
 
 function updateShareQR() {
@@ -367,13 +371,18 @@ if (isMobile) {
 loadApiKey();
 updateShareQR();
 
-// If user came from QR share link, navigate to demo slide
+// If user came from QR share link, navigate to target slide
 if (cameFromShareLink) {
-  var demoSlide = document.getElementById('slide-battle1');
-  if (demoSlide) {
-    var allSlides = Reveal.getSlides();
-    var idx = allSlides.indexOf(demoSlide);
-    if (idx >= 0) Reveal.slide(idx);
+  if (shareSlideTarget !== null) {
+    Reveal.slide(parseInt(shareSlideTarget, 10));
+  } else {
+    // Fallback: navigate to battle1 slide
+    var battle1 = document.getElementById('slide-battle1');
+    if (battle1) {
+      var allSlides = Reveal.getSlides();
+      var idx = allSlides.indexOf(battle1);
+      if (idx >= 0) Reveal.slide(idx);
+    }
   }
 }
 
