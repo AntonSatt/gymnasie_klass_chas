@@ -6,35 +6,17 @@
 // ---- Configuration ----
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 let API_KEY = '';
-let cameFromShareLink = false;
 
-// ---- Load API key BEFORE Reveal so the hash is set first ----
-(function () {
-  const params = new URLSearchParams(window.location.search);
-  const urlKey = params.get('apikey');
-  if (urlKey) {
-    API_KEY = urlKey;
-    localStorage.setItem('openrouter-api-key', urlKey);
-    cameFromShareLink = true;
-    history.replaceState(null, '', window.location.pathname + '#/9');
-  } else {
-    const stored = localStorage.getItem('openrouter-api-key');
-    if (stored) API_KEY = stored;
-  }
-})();
-
-// ---- Initialize Reveal.js (reads #/9 from URL if set above) ----
+// ---- Initialize Reveal.js ----
 var isMobile = window.innerWidth <= 768;
 
-var revealReady = Reveal.initialize({
+Reveal.initialize({
   controls: true,
   progress: true,
   history: true,
   center: !isMobile,
   hash: true,
   transition: 'slide',
-  // On mobile: use actual screen size so text renders at real size
-  // On desktop: use standard presentation dimensions
   width: isMobile ? window.innerWidth : 1280,
   height: isMobile ? window.innerHeight : 720,
   margin: isMobile ? 0.02 : 0.04,
@@ -43,6 +25,27 @@ var revealReady = Reveal.initialize({
 });
 
 // ---- API Key Management ----
+
+let cameFromShareLink = false;
+
+function loadApiKey() {
+  const params = new URLSearchParams(window.location.search);
+  const urlKey = params.get('apikey');
+  if (urlKey) {
+    API_KEY = urlKey;
+    localStorage.setItem('openrouter-api-key', urlKey);
+    cameFromShareLink = true;
+    params.delete('apikey');
+    const cleanURL = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+    history.replaceState(null, '', cleanURL);
+    return;
+  }
+
+  const stored = localStorage.getItem('openrouter-api-key');
+  if (stored) {
+    API_KEY = stored;
+  }
+}
 
 function showApiKeyModal() {
   const modal = document.getElementById('api-key-modal');
@@ -72,8 +75,15 @@ function saveApiKey() {
 // ---- QR Code Sharing ----
 
 function getShareURL() {
+  var demoSlide = document.getElementById('slide-battle1');
+  var slideHash = '';
+  if (demoSlide) {
+    var allSlides = Reveal.getSlides();
+    var idx = allSlides.indexOf(demoSlide);
+    if (idx >= 0) slideHash = '#/' + idx;
+  }
   var base = window.location.origin + window.location.pathname;
-  return base + '?apikey=' + encodeURIComponent(API_KEY) + '&slide=9';
+  return base + '?apikey=' + encodeURIComponent(API_KEY) + slideHash;
 }
 
 function updateShareQR() {
@@ -143,7 +153,6 @@ function renderMarkdown(text) {
   if (typeof marked !== 'undefined') {
     return marked.parse(text);
   }
-  // Fallback: escape HTML and preserve line breaks
   return text
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -160,7 +169,6 @@ const battleResults = {
   battle3: { utan: null, med: null, egen: null },
 };
 
-// Track which tab is currently active per round
 const activeTabs = {
   demo: 'utan',
   battle1: 'utan',
@@ -171,7 +179,6 @@ const activeTabs = {
 var DEFAULT_MODEL = 'google/gemini-3-flash-preview';
 
 async function runBattlePreset(roundId, type, button) {
-  // Read prompt text from the parent .round-prompt card
   const promptEl = button.closest('.round-prompt').querySelector('.prompt-text');
   const prompt = promptEl.textContent.replace(/^[""]|[""]$/g, '').trim();
 
@@ -180,13 +187,11 @@ async function runBattlePreset(roundId, type, button) {
   button.disabled = true;
   button.textContent = 'Tänker...';
 
-  // Switch to this tab and show loading
   activeTabs[roundId] = type;
   updateTabUI(roundId, type);
   responseEl.className = 'ai-response result-slide loading';
   responseEl.innerHTML = 'AI tänker...';
 
-  // Advance to the result slide
   Reveal.next();
 
   try {
@@ -293,81 +298,68 @@ if (isMobile) {
   var overlayTA = document.getElementById('mobile-overlay-textarea');
   var activeRoundId = null;
 
-  if (!overlay) {
-    // Overlay HTML missing — skip setup but don't crash the script
-  } else {
+  if (overlay) {
+    overlay.addEventListener('touchstart', function (e) { e.stopPropagation(); });
+    overlay.addEventListener('touchmove', function (e) { e.stopPropagation(); });
+    overlay.addEventListener('touchend', function (e) { e.stopPropagation(); });
 
-  // Block all touch events from reaching Reveal.js
-  overlay.addEventListener('touchstart', function (e) { e.stopPropagation(); });
-  overlay.addEventListener('touchmove', function (e) { e.stopPropagation(); });
-  overlay.addEventListener('touchend', function (e) { e.stopPropagation(); });
+    function openOverlay(roundId, currentValue) {
+      activeRoundId = roundId;
+      overlayTA.value = currentValue;
+      overlay.classList.add('visible');
+      Reveal.configure({ touch: false, keyboard: false });
+      setTimeout(function () { overlayTA.focus(); }, 100);
+    }
 
-  function openOverlay(roundId, currentValue) {
-    activeRoundId = roundId;
-    overlayTA.value = currentValue;
-    overlay.classList.add('visible');
-    // Disable Reveal touch/keyboard while typing
-    Reveal.configure({ touch: false, keyboard: false });
-    setTimeout(function () { overlayTA.focus(); }, 100);
-  }
+    function closeOverlay() {
+      overlay.classList.remove('visible');
+      Reveal.configure({ touch: true, keyboard: true });
+      activeRoundId = null;
+    }
 
-  function closeOverlay() {
-    overlay.classList.remove('visible');
-    Reveal.configure({ touch: true, keyboard: true });
-    activeRoundId = null;
-  }
-
-  // Intercept focus on in-slide textareas → open overlay instead
-  document.querySelectorAll('.custom-prompt-row textarea').forEach(function (textarea) {
-    textarea.addEventListener('focus', function () {
-      var self = this;
-      var roundId = self.id.replace('-custom', '');
-      self.blur();
-      openOverlay(roundId, self.value);
+    document.querySelectorAll('.custom-prompt-row textarea').forEach(function (textarea) {
+      textarea.addEventListener('focus', function () {
+        var self = this;
+        var roundId = self.id.replace('-custom', '');
+        self.blur();
+        openOverlay(roundId, self.value);
+      });
     });
-  });
 
-  // "Kör" button in overlay
-  document.getElementById('mobile-overlay-send').addEventListener('click', function () {
-    if (activeRoundId) {
-      document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
+    document.getElementById('mobile-overlay-send').addEventListener('click', function () {
+      if (activeRoundId) {
+        document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
+        closeOverlay();
+        runBattleCustom(activeRoundId);
+      }
+    });
+
+    document.getElementById('mobile-overlay-cancel').addEventListener('click', function () {
+      if (activeRoundId) {
+        document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
+      }
       closeOverlay();
-      runBattleCustom(activeRoundId);
-    }
-  });
+    });
 
-  // "Avbryt" button in overlay
-  document.getElementById('mobile-overlay-cancel').addEventListener('click', function () {
-    if (activeRoundId) {
-      document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
-    }
-    closeOverlay();
-  });
-
-  // Recalculate Reveal layout when keyboard opens/closes
-  window.visualViewport && window.visualViewport.addEventListener('resize', function () {
-    Reveal.layout();
-  });
-
-  } // end if (overlay)
+    window.visualViewport && window.visualViewport.addEventListener('resize', function () {
+      Reveal.layout();
+    });
+  }
 }
 
 // ---- Init ----
 
-revealReady.then(function () {
-  updateShareQR();
+loadApiKey();
+updateShareQR();
 
-  // Navigate to Rond 1 if user came from QR share link
-  if (cameFromShareLink) {
-    Reveal.slide(9);
-  }
-});
-
-// Fallback: force navigate after 1 second in case .then() didn't work
+// If user came from QR share link, navigate to Rond 1
 if (cameFromShareLink) {
-  setTimeout(function () {
-    Reveal.slide(9);
-  }, 1000);
+  var demoSlide = document.getElementById('slide-battle1');
+  if (demoSlide) {
+    var allSlides = Reveal.getSlides();
+    var idx = allSlides.indexOf(demoSlide);
+    if (idx >= 0) Reveal.slide(idx);
+  }
 }
 
 // Show API key modal on first demo slide if no key is set
