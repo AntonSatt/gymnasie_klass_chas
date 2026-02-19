@@ -119,20 +119,23 @@
   gap: 12px;
   margin-top: 0.2em;
   align-items: stretch;
-  /* Prevent overflow outside the slide */
   max-height: 68vh;
   overflow: hidden;
+  /* Prevent children from ever growing past the container */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .bad-prompt, .good-prompt {
-  flex: 1;
+  flex: 1 1 0;       /* equal share, allow shrink, base 0 so neither starts wider */
+  min-width: 0;      /* critical: lets flex children shrink below their content size */
   border-radius: 12px;
   padding: 10px 14px;
   text-align: left;
-  /* Allow internal scroll if content is still too tall */
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .bad-prompt {
@@ -162,6 +165,11 @@
   border-radius: 8px;
   line-height: 1.35;
   word-wrap: break-word;
+  overflow-wrap: break-word;  /* modern standard, wraps long unbroken strings */
+  white-space: pre-wrap;      /* preserves intended breaks while still wrapping */
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .prompt-result {
