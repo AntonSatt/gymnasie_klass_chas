@@ -1,6 +1,6 @@
 # CHAS ACADEMY
 
-## Yrkeshogskolan som leder till jobb
+## Yrkeshögskolan som leder till jobb
 
 Note: Hej! Innan vi kör igång med AI-workshopen tänkte jag berätta lite om Chas Academy och vad en yrkeshögskola är.
 

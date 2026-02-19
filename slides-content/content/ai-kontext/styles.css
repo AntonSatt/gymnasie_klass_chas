@@ -63,9 +63,9 @@
 }
 
 .reveal h4 {
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: 700;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.2em;
 }
 
 .reveal strong {
@@ -115,15 +115,15 @@
 
 .comparison {
   display: flex;
-  gap: 20px;
-  margin-top: 0.5em;
+  gap: 14px;
+  margin-top: 0.2em;
   align-items: stretch;
 }
 
 .bad-prompt, .good-prompt {
   flex: 1;
   border-radius: 12px;
-  padding: 16px 20px;
+  padding: 10px 14px;
   text-align: left;
 }
 
@@ -147,20 +147,20 @@
 
 .prompt-text {
   font-family: 'Courier New', monospace;
-  font-size: 0.7em;
+  font-size: 0.62em;
   color: var(--text-main);
   background: rgba(0, 0, 0, 0.3);
-  padding: 10px 14px;
+  padding: 7px 10px;
   border-radius: 8px;
   line-height: 1.4;
   word-wrap: break-word;
 }
 
 .prompt-result {
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: var(--text-muted);
   font-style: italic;
-  margin-top: 0.5em;
+  margin-top: 0.3em;
   margin-bottom: 0;
 }
 
