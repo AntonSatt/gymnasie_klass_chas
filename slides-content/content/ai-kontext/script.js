@@ -81,7 +81,7 @@ function saveApiKey() {
 
 function getShareURL() {
   // Find the demo slide index so the QR link lands there
-  var demoSlide = document.getElementById('slide-demo');
+  var demoSlide = document.getElementById('slide-battle1');
   var slideHash = '';
   if (demoSlide) {
     var allSlides = Reveal.getSlides();
@@ -328,7 +328,7 @@ updateShareQR();
 
 // If user came from QR share link, navigate to demo slide
 if (cameFromShareLink) {
-  var demoSlide = document.getElementById('slide-demo');
+  var demoSlide = document.getElementById('slide-battle1');
   if (demoSlide) {
     var allSlides = Reveal.getSlides();
     var idx = allSlides.indexOf(demoSlide);
