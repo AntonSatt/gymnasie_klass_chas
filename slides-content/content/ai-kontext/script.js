@@ -18,7 +18,7 @@ Reveal.initialize({
   hash: true,
   transition: 'slide',
   width: isMobile ? window.innerWidth : 1280,
-  height: isMobile ? window.innerHeight : 720,
+  height: isMobile ? window.innerHeight : 800,
   margin: isMobile ? 0.02 : 0.04,
   minScale: isMobile ? 1 : 0.2,
   maxScale: isMobile ? 1 : 2.0,
