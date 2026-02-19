@@ -29,6 +29,13 @@
 
 /* === Global === */
 
+/* Force border-box everywhere so padding never adds to width */
+.reveal *,
+.reveal *::before,
+.reveal *::after {
+  box-sizing: border-box;
+}
+
 .reveal {
   font-family: var(--r-main-font);
   font-size: 26px;
@@ -83,6 +90,7 @@
 
 .reveal .slides > section {
   padding: 16px 36px;
+  overflow: hidden;   /* hard clip — nothing escapes the slide canvas */
 }
 
 /* === Title slide === */
