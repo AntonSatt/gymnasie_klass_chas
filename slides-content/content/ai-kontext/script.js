@@ -369,22 +369,26 @@ if (isMobile) {
 // ---- Init ----
 
 loadApiKey();
-updateShareQR();
 
-// If user came from QR share link, navigate to target slide
-if (cameFromShareLink) {
-  if (shareSlideTarget !== null) {
-    Reveal.slide(parseInt(shareSlideTarget, 10));
-  } else {
-    // Fallback: navigate to battle1 slide
-    var battle1 = document.getElementById('slide-battle1');
-    if (battle1) {
-      var allSlides = Reveal.getSlides();
-      var idx = allSlides.indexOf(battle1);
-      if (idx >= 0) Reveal.slide(idx);
+// Wait for Reveal.js to be fully ready before using getSlides()
+Reveal.on('ready', function () {
+  updateShareQR();
+
+  // If user came from QR share link, navigate to target slide
+  if (cameFromShareLink) {
+    if (shareSlideTarget !== null) {
+      Reveal.slide(parseInt(shareSlideTarget, 10));
+    } else {
+      // Fallback: navigate to battle1 slide
+      var battle1 = document.getElementById('slide-battle1');
+      if (battle1) {
+        var allSlides = Reveal.getSlides();
+        var idx = allSlides.indexOf(battle1);
+        if (idx >= 0) Reveal.slide(idx);
+      }
     }
   }
-}
+});
 
 // Show API key modal on first demo slide if no key is set
 Reveal.on('slidechanged', function (event) {
