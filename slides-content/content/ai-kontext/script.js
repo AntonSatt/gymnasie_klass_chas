@@ -302,22 +302,40 @@ document.getElementById('api-key-input').addEventListener('keydown', function (e
 
 // ---- Mobile input overlay ----
 // Reveal.js transforms break scrollIntoView, so on mobile we show a
-// fixed overlay outside .reveal where the user can type freely.
+// fullscreen overlay outside .reveal where the user can type freely.
 
 if (isMobile) {
   var overlay = document.getElementById('mobile-input-overlay');
   var overlayTA = document.getElementById('mobile-overlay-textarea');
   var activeRoundId = null;
 
+  // Block all touch events from reaching Reveal.js
+  overlay.addEventListener('touchstart', function (e) { e.stopPropagation(); });
+  overlay.addEventListener('touchmove', function (e) { e.stopPropagation(); });
+  overlay.addEventListener('touchend', function (e) { e.stopPropagation(); });
+
+  function openOverlay(roundId, currentValue) {
+    activeRoundId = roundId;
+    overlayTA.value = currentValue;
+    overlay.classList.add('visible');
+    // Disable Reveal touch/keyboard while typing
+    Reveal.configure({ touch: false, keyboard: false });
+    setTimeout(function () { overlayTA.focus(); }, 100);
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('visible');
+    Reveal.configure({ touch: true, keyboard: true });
+    activeRoundId = null;
+  }
+
   // Intercept focus on in-slide textareas → open overlay instead
   document.querySelectorAll('.custom-prompt-row textarea').forEach(function (textarea) {
     textarea.addEventListener('focus', function () {
       var self = this;
-      activeRoundId = self.id.replace('-custom', '');
+      var roundId = self.id.replace('-custom', '');
       self.blur();
-      overlayTA.value = self.value;
-      overlay.classList.add('visible');
-      setTimeout(function () { overlayTA.focus(); }, 100);
+      openOverlay(roundId, self.value);
     });
   });
 
@@ -325,9 +343,8 @@ if (isMobile) {
   document.getElementById('mobile-overlay-send').addEventListener('click', function () {
     if (activeRoundId) {
       document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
-      overlay.classList.remove('visible');
+      closeOverlay();
       runBattleCustom(activeRoundId);
-      activeRoundId = null;
     }
   });
 
@@ -336,8 +353,7 @@ if (isMobile) {
     if (activeRoundId) {
       document.getElementById(activeRoundId + '-custom').value = overlayTA.value;
     }
-    overlay.classList.remove('visible');
-    activeRoundId = null;
+    closeOverlay();
   });
 
   // Recalculate Reveal layout when keyboard opens/closes
