@@ -38,10 +38,8 @@ function loadApiKey() {
     API_KEY = urlKey;
     localStorage.setItem('openrouter-api-key', urlKey);
     cameFromShareLink = true;
-    // Clean the key and slide from the URL so it's not visible in the address bar
-    params.delete('apikey');
-    params.delete('slide');
-    const cleanURL = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+    // Clean the key from URL but set hash to #/9 so Reveal navigates to Rond 1
+    const cleanURL = window.location.pathname + '#/9';
     history.replaceState(null, '', cleanURL);
     return;
   }
@@ -361,9 +359,6 @@ loadApiKey();
 
 revealReady.then(function () {
   updateShareQR();
-  if (cameFromShareLink) {
-    Reveal.slide(9);
-  }
 });
 
 // Show API key modal on first demo slide if no key is set
